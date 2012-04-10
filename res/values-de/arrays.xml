@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- used to select sorting-method -->
+    <string-array name="sort_method_entries">
+        <item>Tage verbleibend</item>
+        <item>Alter der Person</item>
+    </string-array>
+    
+    <string-array name="sort_method_values">
+        <item>UPCOMING_DAYS</item>
+        <item>AGE</item>
+    </string-array>
+    
+</resources>

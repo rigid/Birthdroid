@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Birthdroid</string>
+    <string name="preferences_name">Birthdroid Einstellungen</string>
+    <string name="upcoming">wird %2$s %1$d</string>
+    <string name="days_zero">heute</string>
+    <string name="days_one">morgen</string>
+    <string name="days_more">in %1$d Tagen</string>
+    <string name="born_today">wurde heute geboren</string>
+    <string name="no_birthdays">Keine Geburtstage in Kontaktdatenbank</string>
+    <string name="no_upcoming_birthdays">Keine anstehenden Geburtstage...</string>
+    <string name="menu_settings">Einstellungen</string>
+    <string name="menu_about">Über...</string>
+    <string name="prefs_title_general">Allgemein</string>
+    <string name="prefs_title_app">Anwendung</string>
+    <string name="prefs_title_widget">Widget</string>
+    <string name="prefs_title_scan">Aktualisierungsintervall</string>
+    <string name="prefs_title_avartar">Zeige Avartar</string>
+    <string name="prefs_title_sort_method">Sortierung...</string>
+    <string name="prefs_title_days">Anzeige Zeitraum</string>
+    <string name="prefs_title_layout_settings">Layout Einstellungen</string>
+    <string name="prefs_title_flip_interval">Anzeigeintervall</string>
+    <string name="prefs_summary_scan">Durchsuche Kontakte nach neuen Geburtstagen alle n Stunden</string>
+    <string name="prefs_summary_avartar">Lade Bild aus Kontakten und zeige es an</string>
+    <string name="prefs_summary_sort_method">Sortierreihenfolge der angezeigten Einträge</string>
+    <string name="prefs_summary_days">Zeige alle Geburtstage der nächsten n Tage</string>
+    <string name="prefs_summary_layout_settings">Anpassen der Anzeigeeinstellungen</string>
+    <string name="prefs_summary_flip_interval">Zeige nächsten Eintrag nach n Sekunden</string>
+</resources>
