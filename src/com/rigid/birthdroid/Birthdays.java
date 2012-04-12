@@ -90,7 +90,7 @@ public class Birthdays
          */
         public void sort(SortBy method)
         {
-                Comparator c;
+                Comparator<Birthday> c;
                 
                 switch(method)
                 {
@@ -375,36 +375,30 @@ public class Birthdays
         public class Birthday
         {
                 /** the persons name */
-                private String _name;
+                public String personName;
                 /** the event */
-                private Date _birthday;
+                public Date date;
                 /** id of contact that belongs to this birthday */
-                private String _key;
+                public String contactId;
                 /** contact photo */
-                private Bitmap _photo;
+                public Bitmap photo;
                 
 
                 /** constructor */
-                public Birthday(String name, Date birthday, String key, Bitmap photo)
+                public Birthday(String personName, Date date, String contactId, Bitmap photo)
                 {
-                        _name = name;
-                        _birthday = birthday;
-                        _key = key;
-                        _photo = photo;
+                        this.personName = personName;
+                        this.date = date;
+                        this.contactId = contactId;
+                        this.photo = photo;
                 }
 
-                /** get contact photo */
-                public Bitmap getPhoto() 
-                {
-                    return _photo;
-                }
-                
                 /** return current age of person */
                 public int getPersonAge()
                 {
                         Calendar now = new GregorianCalendar();
                         Calendar bday = new GregorianCalendar();
-                        bday.setTime(_birthday);
+                        bday.setTime(date);
 
                         /* get amount of years between birthday and today */
                         int years = now.get(Calendar.YEAR) - bday.get(Calendar.YEAR);
@@ -434,19 +428,6 @@ public class Birthdays
                         return years+1;
                 }
                 
-                /** return name of person */
-                public String getPersonName()
-                {
-                        return _name;
-                }
-
-                /** return birthday date */
-                public Date getDate()
-                {
-                        return _birthday;
-                }
-
-
                 /** 
                  * return amount of days until birthday
                  * @result amount of days until birthday (negative if past)
@@ -458,7 +439,7 @@ public class Birthdays
                         
                         /* calendar for birthday */
                         Calendar b = new GregorianCalendar();
-                        b.setTime(_birthday);
+                        b.setTime(date);
 
                         /* set calendar to current year */
                         b.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
@@ -550,21 +531,22 @@ public class Birthdays
                 {
                         Intent i;
                         i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(ContactsContract.Contacts.CONTENT_LOOKUP_URI + "/" + _key));
+                        i.setData(Uri.parse(ContactsContract.Contacts.CONTENT_LOOKUP_URI + "/" + contactId));
                         _c.startActivity(i);
                 }
         }
+        
         /**
          * comparator for "sort" method to sort birthdays 
          * by days-until-birthday
          */
-        private class UpcomingDaysComparator implements Comparator
+        private class UpcomingDaysComparator implements Comparator<Birthday>
         {
                 @Override
-                public int compare(Object a, Object b) 
+                public int compare(Birthday a, Birthday b) 
                 {
-                        int days_a = ((Birthday) a).getDaysUntilFuture();
-                        int days_b = ((Birthday) b).getDaysUntilFuture();
+                        int days_a = a.getDaysUntilFuture();
+                        int days_b = b.getDaysUntilFuture();
                         return (days_a == days_b ? 0 : (days_a < days_b ? -1 : 1));
                 }
         }
@@ -574,15 +556,16 @@ public class Birthdays
          * comparator comparator for "sort" method to sort
          * birthdays by age of person
          */
-        public class AgeComparator implements Comparator
+        public class AgeComparator implements Comparator<Birthday>
         {
                 @Override
-                public int compare(Object a, Object b) 
+                public int compare(Birthday a, Birthday b) 
                 {
-                        int age_a = ((Birthday) a).getPersonAge();
-                        int age_b = ((Birthday) b).getPersonAge();
+                        int age_a = a.getPersonAge();
+                        int age_b = b.getPersonAge();
                         return (age_a == age_b ? 0 : (age_a < age_b ? -1 : 1));
                 }
         }
+
 }
 

@@ -165,7 +165,7 @@ public class BirthdroidWidget extends AppWidgetProvider
                                         RemoteViews tview = new RemoteViews(getPackageName(), R.layout.widget_text);
 
                                         /* set message text */
-                                        tview.setTextViewText(R.id.widget_person, list.get(i).getPersonName());
+                                        tview.setTextViewText(R.id.widget_person, list.get(i).personName);
                                         tview.setTextViewText(R.id.widget_message, list.get(i).getMessage());
                                         
                                         /* add TextViews to layout */

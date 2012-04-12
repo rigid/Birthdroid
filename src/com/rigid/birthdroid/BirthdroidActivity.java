@@ -172,9 +172,9 @@ public class BirthdroidActivity extends ListActivity
                         Birthdays.Birthday bday = _b.get(position);
                         
                         /* set content of entry */
-                        holder.name.setText(bday.getPersonName());
-                        holder.msg.setText(bday.getMessage()+" ("+_df.format(bday.getDate())+")");
-                        holder.img.setImageBitmap(bday.getPhoto());
+                        holder.name.setText(bday.personName);
+                        holder.msg.setText(bday.getMessage()+" ("+_df.format(bday.date)+")");
+                        holder.img.setImageBitmap(bday.photo);
                         
                         return convertView;
                 }
