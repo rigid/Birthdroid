@@ -561,9 +561,7 @@ public class Birthdays
                 @Override
                 public int compare(Birthday a, Birthday b) 
                 {
-                        int age_a = a.getPersonAge();
-                        int age_b = b.getPersonAge();
-                        return (age_a == age_b ? 0 : (age_a < age_b ? -1 : 1));
+                        return (a.date.equals(b.date) ? 0 : (a.date.after(b.date) ? -1 : 1));
                 }
         }
 
