@@ -13,7 +13,7 @@ install: sign
 	adb install -r bin/$(APPNAME).apk
         
 install_debug: debug
-	adb install -r bin/$(APPNAME)-debug.apk
+	adb install -r bin/$(ACTIVITY)-debug.apk
 
 clean:
 	ant clean
