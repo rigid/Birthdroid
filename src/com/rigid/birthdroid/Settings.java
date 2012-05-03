@@ -68,6 +68,10 @@ public class Settings
                 return _prefs.getInt(key, defValue);
         }
 
+        boolean getBoolean(String key, boolean defValue)
+        {
+                return _prefs.getBoolean(key, defValue);
+        }
         
         /** setter */
         void putString(String key, String value)
@@ -78,5 +82,10 @@ public class Settings
         void putInt(String key, int value)
         {
                 _edit.putInt(key, value);
+        }
+
+        void putBoolean(String key, boolean value)
+        {
+                _edit.putBoolean(key, value);
         }
 }
