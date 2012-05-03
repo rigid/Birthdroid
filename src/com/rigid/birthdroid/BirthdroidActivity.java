@@ -51,9 +51,9 @@ public class BirthdroidActivity extends ListActivity
 {
         private final static String TAG = "Birthdroid/BirthdroidActivity";
         /** object holding all birthdays */
-        private static Birthdays _b;
+        private Birthdays b;
         /** object to hold all our permanent settings */
-        private static Settings _s;
+        private Settings s;
 
         
         
@@ -64,12 +64,12 @@ public class BirthdroidActivity extends ListActivity
                 super.onCreate(savedInstanceState);
 
                 /* create new settings-object */
-                _s = new Settings(this);
+                s = new Settings(this);
                 /* create new birthday-list-object */
-                _b = new Birthdays(this);
+                b = new Birthdays(this);
                 
                 /* sort birthdays */
-                _b.sort(_s.getString("birthdroid_sort_method", 
+                b.sort(s.getString("birthdroid_sort_method", 
                         getResources().getString(R.string.birthdroid_sort_method)));
 
                 /* use our own list adapter */
@@ -85,7 +85,7 @@ public class BirthdroidActivity extends ListActivity
                                                 int position, long id) 
                         {
                                 /* open this contact */
-                                _b.get(position).openContact();
+                                b.get(position).openContact();
                         }
                 });
         }
@@ -97,7 +97,7 @@ public class BirthdroidActivity extends ListActivity
                 super.onResume();
                 
                 /* sort birthdays */
-                _b.sort(_s.getString("birthdroid_sort_method", getResources().getString(R.string.birthdroid_sort_method)));
+                b.sort(s.getString("birthdroid_sort_method", getResources().getString(R.string.birthdroid_sort_method)));
 
                 ((BaseAdapter) getListAdapter()).notifyDataSetInvalidated();
         }
@@ -106,7 +106,7 @@ public class BirthdroidActivity extends ListActivity
         /**
          * ListAdapter that presents a complete list of birthdays
          */
-        private static class BirthdroidListAdapter extends BaseAdapter 
+        private class BirthdroidListAdapter extends BaseAdapter 
         {
                 private Context _c;
                 private DateFormat _df;
@@ -129,7 +129,7 @@ public class BirthdroidActivity extends ListActivity
                  */
                 public int getCount() 
                 {
-                        return _b.getCount();
+                        return b.getCount();
                 }
 
                 
@@ -186,7 +186,7 @@ public class BirthdroidActivity extends ListActivity
                         }
 
                         /* get birthday */
-                        Birthdays.Birthday bday = _b.get(position);
+                        Birthdays.Birthday bday = b.get(position);
                         
                         /* set content of entry */
                         holder.name.setText(bday.personName);
@@ -197,7 +197,7 @@ public class BirthdroidActivity extends ListActivity
                 }
 
                 /* ViewHolder class to hold views of one list-entry */
-                static class ViewHolder 
+                class ViewHolder 
                 {
                         TextView name;
                         TextView msg;

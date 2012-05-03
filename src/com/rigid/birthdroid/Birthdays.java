@@ -31,7 +31,7 @@ import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.provider.ContactsContract.Data;
 import android.util.Log;
 import java.io.InputStream;
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -59,7 +59,8 @@ public class Birthdays
         private final Context _c;
         /** current list of birthdays */
         private List<Birthday> birthdays;
-
+        /* preferences */
+        private Settings s;
         
         
 
@@ -70,6 +71,9 @@ public class Birthdays
         {
                 /* save activity */
                 _c = c;
+
+                /* settings */
+                s = new Settings(_c);
                 
                 /* create new Birthday list */
                 birthdays = refresh();
@@ -263,11 +267,13 @@ public class Birthdays
                 (
                         ContactsContract.Contacts.PHOTO_URI
                 );*/
-                
+
+                /* get DateFormat to parse our date */
                 /* try to get DateFormat to parse dates */
-                DateFormat df;
+                SimpleDateFormat df;
                 if((df = findDateFormat(c.getString(dateColumn))) == null)
                         return list;
+
                 
                 /* walk all birthdays */
                 do 
@@ -277,7 +283,7 @@ public class Birthdays
 
                         /* get date as string */
                         String date = c.getString(dateColumn); 
-
+                        
                         /* get lookup key */
                         String key = c.getString(keyColumn);
 
@@ -334,53 +340,31 @@ public class Birthdays
         }
 
         /** find date format for a supplied date-string */
-        private DateFormat findDateFormat(String date)
+        private SimpleDateFormat findDateFormat(String date)
         {
-                /* preferences */
-                Settings s = new Settings(_c);
-                String prefLocale = s.getString("date_format_locale", "null");
-                int prefStyle = s.getInt("date_format_style", -1);
-                
-                /* date-format not found, yet? */
-                if(!prefLocale.equals("null") || prefStyle != -1)
+                String[] formats = new String[]
                 {
-                        /* get date-format */
-                        return DateFormat.getDateInstance(prefStyle, new Locale(prefLocale));
-                }
-                
-                /* search date-format */
-                for (Locale locale : DateFormat.getAvailableLocales()) 
-                {
-                        final int[] styles = 
-                        {
-                                DateFormat.SHORT,
-                                DateFormat.MEDIUM,
-                                DateFormat.LONG,
-                                DateFormat.FULL,
-                        };
-                        
-                        for(int style : styles)
-                        {
-                                DateFormat df = DateFormat.getDateInstance(style, locale);
-                                try 
-                                {
-                                        /* try to parse date */
-                                        df.parse(date);
+                        "yyyy-MM-dd hh:mm:ss.SSS",
+                        "yyyy-MM-dd",
+                };
 
-                                        /* save date-format */
-                                        s.putInt("date_format_style", style);
-                                        s.putString("date_format_locale", locale.toString());
-                                        s.commit();
-                                        
-                                        /* bingo! */
-                                        return df;
-                                }
-                                catch (ParseException ex) 
-                                {
-                                        continue;
-                                }
+                for(String format : formats)
+                {
+                        SimpleDateFormat df = new SimpleDateFormat(format);
+                        try 
+                        {
+                                /* try to parse date */
+                                df.parse(date);
+                                
+                                /* bingo! */
+                                return df;
+                        }
+                        catch (ParseException ex) 
+                        {
+                                continue;
                         }
                 }
+
 
                 Log.e(TAG, "Could not find DateFormat for \""+date+"\"");
                         
@@ -402,10 +386,10 @@ public class Birthdays
                 
 
                 /** constructor */
-                public Birthday(String personName, Date date, String contactId, Bitmap photo)
+                public Birthday(String personName, Date birthday, String contactId, Bitmap photo)
                 {
                         this.personName = personName;
-                        this.date = date;
+                        this.date = birthday;
                         this.contactId = contactId;
                         this.photo = photo;
                 }
@@ -417,6 +401,7 @@ public class Birthdays
                         Calendar bday = new GregorianCalendar();
                         bday.setTime(date);
 
+                        
                         /* get amount of years between birthday and today */
                         int years = now.get(Calendar.YEAR) - bday.get(Calendar.YEAR);
                         
@@ -440,7 +425,10 @@ public class Birthdays
                         }
                         
                         if(years < 0)
-                                throw new IllegalArgumentException("Age < 0");
+                        {
+                                Log.e(TAG, "Illegal age: "+years+" Using: age = 0");
+                                return 0;
+                        }
                         
                         return years+1;
                 }
