@@ -21,6 +21,7 @@
     <integer name="widget_flip_interval">5</integer>
     <string name="widget_avartars">false</string>
     <string name="widget_sort_method">UPCOMING_DAYS</string>
+    <string name="widget_clickable">true</string>
     <string name="birthdroid_avartars">false</string>
     <string name="birthdroid_sort_method">UPCOMING_DAYS</string>
 </resources>

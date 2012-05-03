@@ -67,6 +67,12 @@
                         android:defaultValue="@integer/widget_future_days"
                         android:inputType="number"/>       
 
+                <CheckBoxPreference
+                                android:key="widget_clickable" 
+                                android:title="@string/prefs_title_widget_clickable"
+                                android:summary="@string/prefs_summary_widget_clickable"
+                                android:defaultValue="@string/widget_clickable"/>
+
                 <PreferenceScreen
                         android:key="widget_layout_screen"
                         android:title="@string/prefs_title_layout_settings"

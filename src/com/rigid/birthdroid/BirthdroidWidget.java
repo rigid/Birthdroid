@@ -42,13 +42,18 @@ public class BirthdroidWidget extends AppWidgetProvider
 {
         private final static String TAG = "BirthdroidWidget";
         private PendingIntent pi;
-        
+        /** object to hold all our permanent settings */
+        private Settings s;
 
+        
         /** called by OS when first widget instance is created */
         @Override
         public void onEnabled(Context c)
         {
                 super.onEnabled(c);
+
+                /* create settings */
+                s = new Settings(c);
                 
                 /* create intent that launches our service */
                 Intent i = new Intent(c, BirthdroidService.class);
@@ -105,7 +110,19 @@ public class BirthdroidWidget extends AppWidgetProvider
                 /* click on widget? */
                 if(action.equals("com.rigid.birthdroid.CLICK"))
                 {
-                        Log.v(TAG, "Clicked!!");
+                        Settings settings = new Settings(context);
+                        if(settings.getBoolean("widget_clickable", context.getResources().getString(R.string.widget_clickable).equals("true")))
+                        {
+                                Log.v(TAG, "Click on widget -> Opening app");
+                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                i.setClassName(context.getPackageName(), context.getPackageName()+".BirthdroidActivity");
+                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                context.startActivity(i);
+                        }
+                        else
+                        {
+                                Log.v(TAG,"Click on widget but not opening app");
+                        }
                 }
                 /* Preferences changed? */
                 else if(action.equals("com.rigid.birthdroid.PREFS_UPDATE")) 
