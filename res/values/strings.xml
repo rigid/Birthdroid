@@ -46,11 +46,14 @@
     <string name="prefs_summary_layout_settings">Adjust layout settings</string>
     <string name="prefs_summary_flip_interval">Flip to next contact every n seconds</string>
     <string name="prefs_summary_widget_clickable">Open Birthdroid upon click on widget?</string>
-    <string name="about_title">Birthdroid v0.3</string>
+    <string name="about_title">Birthdroid v0.4</string>
     <string name="about_copyright">2011-2012 (c) Daniel Hiepler</string>
     <string name="about_url">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
     <string name="about_changes">
+\n* v0.4\n
+- added option to open app upon click on widget\n
+- fixed wrong DateFormat detection on Android 2.3.x\n
 \n* v0.3\n
 - fixed bug in AgeComparator that gave wrong results when sorting-by-age\n
 - moved to github\n
