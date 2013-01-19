@@ -1,6 +1,6 @@
 /*
  * Birthdroid - Android upcoming birthday App/Widget
- * Copyright (C) 20011-2012 Daniel Hiepler <daniel@niftylight.de>
+ * Copyright (C) 2011-2013 Daniel Hiepler <daniel@niftylight.de>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -187,10 +187,13 @@ public class BirthdroidActivity extends ListActivity
 
                         /* get birthday */
                         Birthdays.Birthday bday = b.get(position);
-                        
+
                         /* set content of entry */
                         holder.name.setText(bday.personName);
-                        holder.msg.setText(bday.getMessage()+" ("+_df.format(bday.date)+")");
+                        holder.msg.setText(bday.getMessage()+
+                                           " ("+_df.format(bday.date)+")"+
+                                           bday.getLeapYearMessage());
+                        
                         holder.img.setImageBitmap(bday.photo);
                         
                         return convertView;

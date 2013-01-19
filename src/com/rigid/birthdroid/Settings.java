@@ -1,6 +1,6 @@
 /*
  * Birthdroid - Android upcoming birthday App/Widget
- * Copyright (C) 20011-2012 Daniel Hiepler <daniel@niftylight.de>
+ * Copyright (C) 2011-2013 Daniel Hiepler <daniel@niftylight.de>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

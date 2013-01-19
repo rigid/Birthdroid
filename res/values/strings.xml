@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
  Birthdroid - Android upcoming birthday App/Widget
- Copyright (C) 20011-2012 Daniel Hiepler <daniel@niftylight.de>
+ Copyright (C) 2011-2013 Daniel Hiepler <daniel@niftylight.de>
  
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@
     <string name="days_one">tomorrow</string>
     <string name="days_more">in %1$d days</string>
     <string name="born_today">was born today</string>
+    <string name="no_leap_year">(This is no leap year, but surely celebrates anyway ;)</string>
     <string name="no_birthdays">No birthdays in contacts</string>
     <string name="no_upcoming_birthdays">No upcoming birthdays...</string>
     <string name="menu_settings">Settings</string>
@@ -46,11 +47,14 @@
     <string name="prefs_summary_layout_settings">Adjust layout settings</string>
     <string name="prefs_summary_flip_interval">Flip to next contact every n seconds</string>
     <string name="prefs_summary_widget_clickable">Open Birthdroid upon click on widget?</string>
-    <string name="about_title">Birthdroid v0.4</string>
-    <string name="about_copyright">2011-2012 (c) Daniel Hiepler</string>
+    <string name="about_title">Birthdroid v0.5</string>
+    <string name="about_copyright">2011-2013 (c) Daniel Hiepler</string>
     <string name="about_url">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
     <string name="about_changes">
+\n* v0.5\n
+- make date parsing stricter (to exclude invalid dates)\n
+- added special message for leap year cases\n
 \n* v0.4\n
 - added option to open app upon click on widget\n
 - fixed wrong DateFormat detection on Android 2.3.x\n

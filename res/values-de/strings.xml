@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
  Birthdroid - Android upcoming birthday App/Widget
- Copyright (C) 20011-2012 Daniel Hiepler <daniel@niftylight.de>
+ Copyright (C) 2011-2013 Daniel Hiepler <daniel@niftylight.de>
  
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@
     <string name="days_one">morgen</string>
     <string name="days_more">in %1$d Tagen</string>
     <string name="born_today">wurde heute geboren</string>
+    <string name="no_leap_year">(Heuer kein Schaltjahr, aber feiert gewiss trotzdem ;)</string>
     <string name="no_birthdays">Keine Geburtstage in Kontaktdatenbank</string>
     <string name="no_upcoming_birthdays">Keine anstehenden Geburtstage...</string>
     <string name="menu_settings">Einstellungen</string>

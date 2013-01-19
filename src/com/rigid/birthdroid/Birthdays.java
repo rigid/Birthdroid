@@ -1,6 +1,6 @@
 /*
  * Birthdroid - Android upcoming birthday App/Widget
- * Copyright (C) 20011-2012 Daniel Hiepler <daniel@niftylight.de>
+ * Copyright (C) 2011-2013 Daniel Hiepler <daniel@niftylight.de>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -274,6 +274,8 @@ public class Birthdays
                 if((df = findDateFormat(c.getString(dateColumn))) == null)
                         return list;
 
+                /* we are strict */
+                df.setLenient(false);
                 
                 /* walk all birthdays */
                 do 
@@ -298,12 +300,12 @@ public class Birthdays
                         Date birthday;
                         try
                         {
-                                birthday = df.parse(date);
+                                birthday = df.parse(date.trim());
                         }
                         catch(ParseException e)
                         {
                                 Log.e(TAG, e.getMessage());
-                                Log.e(TAG, "Failed to parse date! Please report bug.");
+                                Log.e(TAG, "invalid date failed to parse: "+date);
                                 continue;
                         }
 
@@ -526,11 +528,37 @@ public class Birthdays
                         msg = String.format(
                                         res.getString(R.string.upcoming),
                                         age, days);
-                
-                        
+
                         return msg;
                 }
 
+
+                /* get special leap-year message if necessary */
+                public String getLeapYearMessage()
+                {
+                        /* create temporary calendar for some calculations */
+                        GregorianCalendar tmp = new GregorianCalendar();
+
+                        /* is current year a leap year? */
+                        boolean is_leap_year = tmp.isLeapYear(tmp.get(Calendar.YEAR));
+
+                        /* set calendar to birthday */
+                        tmp.setTime(date);
+                        
+                        /* is birthday on 29 of February and 
+                           current year no leap-year? */                     
+                        if(tmp.get(Calendar.MONTH) == Calendar.FEBRUARY &&
+                           tmp.get(Calendar.DAY_OF_MONTH) == 29 &&
+                           is_leap_year == false)
+                        {
+                                /* add no-leap-year message? */
+                                return "\n"+_c.getResources().getString(R.string.no_leap_year);
+                        }
+
+                        return "";
+                }
+
+                
                 /** open contact belonging to this birthday */
                 public void openContact()
                 {
