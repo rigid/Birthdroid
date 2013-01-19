@@ -12,12 +12,13 @@ Simple, ad free & open android birthday app/widget.
 ==========
 Use the provided Makefile wrapper. Available targets are
 
-make keygen  - generate own keystore
-make update  - update project
-make all     - build release
-make debug   - build debug
-make sign    - sign release
-make install - push .apk to device using adb
+make keygen        - generate own keystore
+make update        - update project
+make all           - build release
+make debug         - build debug
+make sign          - sign release
+make install       - push .apk to device using adb
+make install_debug - push debugging .apk to device using adb
 
 e.g. make update && make keygen && make && make sign && make install
 
