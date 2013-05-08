@@ -20,7 +20,7 @@
       xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.rigid.birthdroid"
       android:versionCode="1"
-      android:versionName="0.5">
+      android:versionName="0.6">
         
     <!-- main application -->
     <application 

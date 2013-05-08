@@ -90,6 +90,7 @@ public class BirthdroidActivity extends ListActivity
                 });
         }
 
+		
         /** called by OS when this activity becomes active again */
         @Override
         public void onResume()
@@ -102,7 +103,20 @@ public class BirthdroidActivity extends ListActivity
                 ((BaseAdapter) getListAdapter()).notifyDataSetInvalidated();
         }
 
-        
+		
+        /** another activity comes over this activity */
+        @Override
+        public void onPause()
+        {
+                /** update widget */
+                Intent i = new Intent(this, BirthdroidWidget.class);
+                i.setAction("com.rigid.birthdroid.PREFS_UPDATE");
+                sendBroadcast(i);
+
+                super.onPause();
+        }
+
+		
         /**
          * ListAdapter that presents a complete list of birthdays
          */
