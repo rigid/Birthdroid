@@ -53,6 +53,8 @@
     <string name="about_url">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
     <string name="about_changes">
+\n* v0.6.1\n
+- support birthdays that don\'t have a year set\n
 \n* v0.6\n
 - update widget when leaving activity\n
 \n* v0.5\n
