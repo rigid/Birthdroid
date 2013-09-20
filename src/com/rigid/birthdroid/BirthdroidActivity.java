@@ -41,6 +41,7 @@ import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 
@@ -123,7 +124,7 @@ public class BirthdroidActivity extends ListActivity
         private class BirthdroidListAdapter extends BaseAdapter 
         {
                 private Context _c;
-                private DateFormat _df;
+                private SimpleDateFormat _df;
                 private LayoutInflater _i;
                 
                 
@@ -131,14 +132,11 @@ public class BirthdroidActivity extends ListActivity
                 {
                         _c = context;
                         _i = LayoutInflater.from(context);
-                        _df = DateFormat.getDateInstance(DateFormat.SHORT);
+                        _df = (SimpleDateFormat) SimpleDateFormat.getDateInstance(SimpleDateFormat.SHORT);
                 }
 
                 
                 /**
-                 * The number of items in the list is determined by the number of speeches
-                 * in our array.
-                 * 
                  * @see android.widget.ListAdapter#getCount()
                  */
                 public int getCount() 
@@ -171,8 +169,6 @@ public class BirthdroidActivity extends ListActivity
                 }
 
                 /**
-                 * Make a SpeechView to hold each row.
-                 * 
                  * @see android.widget.ListAdapter#getView(int, android.view.View,
                  *      android.view.ViewGroup)
                  */
@@ -204,10 +200,26 @@ public class BirthdroidActivity extends ListActivity
 
                         /* set content of entry */
                         holder.name.setText(bday.personName);
-                        holder.msg.setText(bday.getMessage()+
-                                           " ("+_df.format(bday.date)+")"+
-                                           bday.getLeapYearMessage());
-                        
+
+						/* strip year on birthdays without valid year */
+						String date;
+						if(bday.hasYear)
+						{
+								date = _df.format(bday.date);
+						}
+						else
+						{			
+								SimpleDateFormat df = (SimpleDateFormat) _df.clone();
+								String p = df.toLocalizedPattern();
+								p = p.replaceAll("\\W?[Yy]+\\W?", "");
+								df = new SimpleDateFormat(p);
+								date = df.format(bday.date);
+						}						
+						
+						holder.msg.setText(
+                              bday.getMessage()+
+						      " ("+date+")"+
+                              bday.getLeapYearMessage());
                         holder.img.setImageBitmap(bday.photo);
                         
                         return convertView;

@@ -268,15 +268,7 @@ public class Birthdays
                         ContactsContract.Contacts.PHOTO_URI
                 );*/
 
-                /* get DateFormat to parse our date */
-                /* try to get DateFormat to parse dates */
-                SimpleDateFormat df;
-                if((df = findDateFormat(c.getString(dateColumn))) == null)
-                        return list;
-
-                /* we are strict */
-                df.setLenient(false);
-                
+               				
                 /* walk all birthdays */
                 do 
                 { 
@@ -289,28 +281,21 @@ public class Birthdays
                         /* get lookup key */
                         String key = c.getString(keyColumn);
 
-                        /* get contact id */
-                        long id = c.getLong(idColumn);
-
                         /* get photo URI */
                         //String photo_uri = c.getString(photoColumn);
                         //Log.e(TAG, "-------------> "+photo_uri);
-                        
-                        /* parse date-string */
-                        Date birthday;
-                        try
-                        {
-                                birthday = df.parse(date.trim());
-                        }
-                        catch(ParseException e)
-                        {
-                                Log.e(TAG, e.getMessage());
-                                Log.e(TAG, "invalid date failed to parse: "+date);
-                                continue;
-                        }
 
+						/* parse date-string */                        
+						Birthday b;
+						if((b = parse(date.trim())) == null)
+								continue;
+
+						/* fill in contact data */
+						b.personName = name;
+						b.contactId = key;
+						
                         /* get contact photo */
-                        Bitmap photo = null;
+                        //~ Bitmap photo = null;
                         //~ Uri photo_uri = ContentUris.withAppendedId(
                                 //~ ContactsContract.Contacts.CONTENT_URI, id);
                         
@@ -331,35 +316,57 @@ public class Birthdays
                         //~ else Log.v(TAG, "No photo!");
                         
                         
-                        /* save birthday in list */
-                        Birthday b = new Birthday(name, birthday, key, photo);
+                        /* save birthday in list */                        
                         list.add(b);
                         
-                } while (c.moveToNext()); 
-        
-               
+                } while (c.moveToNext());       
+				
                 return list;
         }
 
-        /** find date format for a supplied date-string */
-        private SimpleDateFormat findDateFormat(String date)
+        /* parse date string */
+        private Birthday parse(String date)
         {
+                Date birthday = null;
+
+                /* try various date formats */
                 String[] formats = new String[]
                 {
                         "yyyy-MM-dd hh:mm:ss.SSS",
                         "yyyy-MM-dd",
+                        "--MM-dd",
                 };
 
                 for(String format : formats)
-                {
+                {						
                         SimpleDateFormat df = new SimpleDateFormat(format);
+						
+                        /* we are strict */
+                        df.setLenient(false);
+						
                         try 
                         {
                                 /* try to parse date */
-                                df.parse(date);
-                                
-                                /* bingo! */
-                                return df;
+                                birthday = df.parse(date);
+							
+                                /* create birthday */
+								Birthday b = new Birthday(birthday);
+
+								/* birthday has year? */
+								if(format.contains("y"))
+								{
+										/* flag that birthday has valid year set */
+										b.hasYear = true;
+								}
+								else
+								{
+										/* set year to 1900 for sorting */
+										b.date.setYear(0);
+										/* flag that birthday has no valid year set */
+										b.hasYear = false;
+								}
+
+                                return b;
                         }
                         catch (ParseException ex) 
                         {
@@ -385,15 +392,27 @@ public class Birthdays
                 public String contactId;
                 /** contact photo */
                 public Bitmap photo;
-                
+                /* indicate if this Birthday has a year */
+                public boolean hasYear;
+
 
                 /** constructor */
+                public Birthday(Date birthday)
+                {
+                        this.date = birthday;
+                        this.personName = "";
+                        this.contactId = "";
+                        this.photo = null;
+                        this.hasYear = false;
+				}
+
                 public Birthday(String personName, Date birthday, String contactId, Bitmap photo)
                 {
                         this.personName = personName;
                         this.date = birthday;
                         this.contactId = contactId;
                         this.photo = photo;
+                        this.hasYear = false;
                 }
 
                 /** return current age of person */
@@ -521,13 +540,24 @@ public class Birthdays
                                 }
                                         
                         }
-
-                                                
-                        /* build message */
+						
+                        /* generate different messages whether the birthday
+                         * has the year of birth set or not */						 
                         String msg;
-                        msg = String.format(
-                                        res.getString(R.string.upcoming),
-                                        age, days);
+                        if(hasYear)
+                        {
+								/* build message with age */                        
+								msg = String.format(
+												res.getString(R.string.upcoming),
+												age, days);
+						}
+						else
+						{
+								/* build message without age */
+								msg = String.format(
+								                res.getString(R.string.upcoming_no_age),
+								                days);
+						}
 
                         return msg;
                 }

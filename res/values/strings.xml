@@ -21,6 +21,7 @@
     <string name="preferences_name">Birthdroid preferences</string>
     <string name="about_name">About Birthdroid</string>
     <string name="upcoming">will be %1$d %2$s</string>
+    <string name="upcoming_no_age">celebrates birthday %1$s</string>
     <string name="days_zero">today</string>
     <string name="days_one">tomorrow</string>
     <string name="days_more">in %1$d days</string>
