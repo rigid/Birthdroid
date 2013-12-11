@@ -3,7 +3,7 @@ BIRTHDROID
 
 Simple, ad free & open android birthday app/widget.
 
-Download APK at https://github.com/rigid/Birthdroid/blob/master/bin/Birthdroid.apk?raw=true
+Download latest APK at https://github.com/rigid/Birthdroid/releases/latest
 
 
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/thing/1345949)
