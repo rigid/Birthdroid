@@ -19,11 +19,11 @@
 <manifest 
       xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.rigid.birthdroid"
-      android:versionCode="61"
-      android:versionName="0.6.1">
+      android:versionCode="62"
+      android:versionName="0.6.2">
         
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-sdk android:minSdkVersion="8"  />
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
 
     <!-- main application -->
     <application 

@@ -48,11 +48,15 @@
     <string name="prefs_summary_layout_settings">Adjust layout settings</string>
     <string name="prefs_summary_flip_interval">Flip to next contact every n seconds</string>
     <string name="prefs_summary_widget_clickable">Open Birthdroid upon click on widget?</string>
-    <string name="about_title">Birthdroid v0.6.1</string>
+    <string name="about_title">Birthdroid v0.6.2</string>
     <string name="about_copyright">2011-2013 (c) Daniel Hiepler</string>
     <string name="about_url">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
     <string name="about_changes">
+\n* v0.6.2\n
+- added appcompat library, so ActionBar can be used to enable devices without physical menu button to access the menu. Thanks to exploidex for reporting.\n
+- adapted layout to newly added ActionBar\n
+- minor code changes\n
 \n* v0.6.1\n
 - support birthdays that don\'t have a year set\n
 \n* v0.6\n
