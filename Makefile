@@ -19,7 +19,7 @@ clean:
 	ant clean
 
 update:
-	android update project --name $(APPNAME) --target android-19 --path . --library ../../appcompat
+	android update project --name $(APPNAME) --path .
 
 keygen:
 	keytool -genkey -v -keystore my.keystore -alias $(APPNAME)_key -keyalg RSA -keysize 4096 -validity 100000
