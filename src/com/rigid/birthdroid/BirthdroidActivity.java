@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -241,7 +242,7 @@ public class BirthdroidActivity extends ListActivity
         {
                 MenuInflater inflater = getMenuInflater();
                 inflater.inflate(R.menu.birthdroid, menu);
-                return true;
+                return super.onCreateOptionsMenu(menu);
         }
 
         
@@ -255,14 +256,14 @@ public class BirthdroidActivity extends ListActivity
                         case R.id.about:
                         {
                                 startActivity(new Intent(this, AboutActivity.class));
-                                return true;
+                                break;
                         }
                                 
                         /** Settings */
                         case R.id.settings:
                         {
                                 startActivity(new Intent(this, PreferencesActivity.class));
-                                return true;
+                                break;
                         }
 
                         /** wtf? */
@@ -273,7 +274,7 @@ public class BirthdroidActivity extends ListActivity
                         }
                 }
 
-                return false;
+                return super.onOptionsItemSelected(item);
         }
 
 }

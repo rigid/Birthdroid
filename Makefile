@@ -19,12 +19,12 @@ clean:
 	ant clean
 
 update:
-	android update project --target android-8 --path .
+	android update project --name $(APPNAME) --target android-14 --path . --library ../../appcompat
 
 keygen:
 	keytool -genkey -v -keystore my.keystore -alias $(APPNAME)_key -keyalg RSA -keysize 4096 -validity 100000
 
 sign: all
-	jarsigner -keystore my.keystore bin/$(ACTIVITY)-release-unsigned.apk $(APPNAME)_key
+	jarsigner -keystore my.keystore bin/$(APPNAME)-release-unsigned.apk $(APPNAME)_key
 	@rm -f bin/$(APPNAME).apk 2>/dev/null
-	zipalign -v 4 bin/$(ACTIVITY)-release-unsigned.apk bin/$(APPNAME).apk
+	zipalign -v 4 bin/$(APPNAME)-release-unsigned.apk bin/$(APPNAME).apk
