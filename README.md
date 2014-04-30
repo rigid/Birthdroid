@@ -38,7 +38,14 @@ You need the appcompat library to compile Birthdroid. You might have to update t
 3. Usage
 ========
 
-* 3.1 Launch the app 
-* 3.2 You'll see a list of contacts with upcoming birthdays 
-* 3.3 Use the preferences menu to configure various settings
-* 3.4 (optional) add a widget to your home-screen that continously shows upcoming birthdays
+ 1. Launch the app 
+ 2. You'll see a list of contacts with upcoming birthdays 
+ 3. Use the preferences menu to configure various settings
+ 4. (optional) add a widget to your home-screen that continously shows upcoming birthdays
+
+
+4. FAQ
+======
+
+* How can I force-refresh the birthday list or the widget content?
+** Data will be refreshed regularly every 24 hours and after you leave the preferences. To force a refresh, open and close the preferences dialog from the app menu.
