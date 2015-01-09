@@ -155,6 +155,14 @@ public class Birthdays
          */
         public Birthday get(int n)
         {
+                /* n must not greater than amount of birthdays */
+                if(n >= birthdays.size())
+                    n = birthdays.size()-1;
+
+                /* n must not be < 0 */
+                if(n < 0)
+                    n = 0;
+
                 return birthdays.get(n);
         }
         
@@ -177,6 +185,14 @@ public class Birthdays
          */
         public List<Birthday> getUpcoming(int days)
         {
+                /* days must not be negative */
+                if(days < 0)
+                    days = 0;
+
+                /* more than a year makes no sense */
+                if(days > 366)
+                    days = 366;
+
                 /* result list */
                 List<Birthday> list = new ArrayList<Birthday>();
                                 

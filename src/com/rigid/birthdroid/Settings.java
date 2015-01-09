@@ -68,6 +68,23 @@ public class Settings
                 return _prefs.getInt(key, defValue);
         }
 
+	int getStringInt(String key, int defValue)
+	{
+            int result = defValue;
+            try
+            {
+                    result = Integer.parseInt(getString(key, Integer.toString(defValue)));
+            }
+            catch(java.lang.NumberFormatException ex)
+            {
+                    /* save default */
+                    putString(key, Integer.toString(defValue));
+                    commit();
+            }
+
+            return result;
+	}
+
         boolean getBoolean(String key, boolean defValue)
         {
                 return _prefs.getBoolean(key, defValue);
@@ -83,6 +100,11 @@ public class Settings
         {
                 _edit.putInt(key, value);
         }
+
+	void putStringInt(String key, int value)
+	{
+		putString(key, Integer.toString(value));
+	}
 
         void putBoolean(String key, boolean value)
         {

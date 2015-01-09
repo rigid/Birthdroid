@@ -158,8 +158,24 @@ public class BirthdroidWidget extends AppWidgetProvider
                         /* sort birthdays */
                         birthdays.sort(s.getString("widget_sort_method", r.getString(R.string.widget_sort_method)));
                         
+			/* amount of future days to check */
+			int upcoming_n = s.getStringInt("widget_future_days", R.integer.widget_future_days);
+
+                        /* sanitize */
+                        if(upcoming_n > 366)
+                        {
+                            upcoming_n = 366;
+                            s.putStringInt("widget_future_days", upcoming_n);
+                            s.commit();
+                        }
+                        if(upcoming_n < 0)
+                        {
+                            upcoming_n = 0;
+                            s.putStringInt("widget_future_days", upcoming_n);
+                            s.commit();
+                        }
+
                         /* get list of upcoming birthdays */
-                        int upcoming_n = Integer.parseInt(s.getString("widget_future_days", Integer.toString(r.getInteger(R.integer.widget_future_days))));
                         Log.v(TAG, "Checking for birthdays in the next "+upcoming_n+" days");
                         List<Birthdays.Birthday> list = birthdays.getUpcoming(upcoming_n);
                                        
@@ -169,8 +185,25 @@ public class BirthdroidWidget extends AppWidgetProvider
                         /* remove all entries of ViewFlipper */
                         views.removeAllViews(R.id.view_flipper);
                         
+			/* get delay in seconds for view flipper */
+			int flip_delay = s.getStringInt("widget_flip_interval", R.integer.widget_flip_interval);
+
+                        /* sanitize */
+                        if(flip_delay < 0)
+                        {
+                            flip_delay = 0;
+                            s.putStringInt("widget_flip_interval", flip_delay);
+                            s.commit();
+                        }
+                        if(flip_delay > 65535)
+                        {
+                            flip_delay = 65535;
+                            s.putStringInt("widget_flip_interval", flip_delay);
+                            s.commit();
+                        }
+
                         /* set view-flipper delay */                        
-                        views.setInt(R.id.view_flipper, "setFlipInterval", Integer.parseInt(s.getString("widget_flip_interval", Integer.toString(r.getInteger(R.integer.widget_flip_interval))))*1000);
+                        views.setInt(R.id.view_flipper, "setFlipInterval", flip_delay*1000);
                         
                         /* set view-flipper animation */
                         //views.setInt(R.id.view_flipper, "setInAnimation", R.anim.push_up_in);
