@@ -19,8 +19,8 @@
 <manifest 
       xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.rigid.birthdroid"
-      android:versionCode="63"
-      android:versionName="0.6.3">
+      android:versionCode="64"
+      android:versionName="0.6.4">
         
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
