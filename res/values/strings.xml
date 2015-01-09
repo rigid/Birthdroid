@@ -54,8 +54,8 @@
     <string name="about_description">Simple application to show upcoming birthdays.</string>
     <string name="about_changes">
 \n* v0.6.4\n
-- french translation - thanks to eliovir
-- bugfix
+- french translation - thanks to eliovir\n
+- bugfix\n
 \n* v0.6.3\n
 - use proguard in f-droid to get smaller .apk package\n
 \n* v0.6.2\n
