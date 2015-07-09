@@ -48,4 +48,4 @@ You need the appcompat library to compile Birthdroid. You might have to update t
 ======
 
 * How can I force-refresh the birthday list or the widget content?
-** Data will be refreshed regularly every 24 hours and after you leave the preferences. To force a refresh, open and close the preferences dialog from the app menu.
+  * Data will be refreshed regularly every 24 hours and after you leave the preferences. To force a refresh, open and close the preferences dialog from the app menu.
