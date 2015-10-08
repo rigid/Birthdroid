@@ -35,7 +35,7 @@
     <string name="prefs_title_app">Application</string>
     <string name="prefs_title_widget">Widget</string>
     <string name="prefs_title_scan">Contact scan interval</string>
-    <string name="prefs_title_avartar">Show avartar</string>
+    <string name="prefs_title_avartar">Show avatar</string>
     <string name="prefs_title_sort_method">Sort by...</string>
     <string name="prefs_title_days">Foresight period</string>
     <string name="prefs_title_layout_settings">Layout settings</string>
@@ -50,7 +50,7 @@
     <string name="prefs_summary_widget_clickable">Open Birthdroid upon click on widget?</string>
     <string name="about_title">Birthdroid v0.6.4</string>
     <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
-    <string name="about_url">http://github.com/rigid/Birthdroid</string>
+    <string name="about_url" translatable="false">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
     <string name="about_changes" translatable="false">
 \n* v0.6.4\n
