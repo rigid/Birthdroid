@@ -19,9 +19,9 @@
 <resources>
     <integer name="widget_future_days">5</integer>
     <integer name="widget_flip_interval">5</integer>
-    <string name="widget_avartars" translatable="false">false</string>
+    <string name="widget_avatars" translatable="false">false</string>
     <string name="widget_sort_method" translatable="false">UPCOMING_DAYS</string>
     <string name="widget_clickable" translatable="false">true</string>
-    <string name="birthdroid_avartars" translatable="false">false</string>
+    <string name="birthdroid_avatars" translatable="false">false</string>
     <string name="birthdroid_sort_method" translatable="false">UPCOMING_DAYS</string>
 </resources>

@@ -39,10 +39,10 @@
                         android:summary="@string/prefs_summary_layout_settings">
                         
                         <CheckBoxPreference
-                                android:key="birthdroid_avartars" 
-                                android:title="@string/prefs_title_avartar"
-                                android:summary="@string/prefs_summary_avartar"
-                                android:defaultValue="@string/birthdroid_avartars"
+                                android:key="birthdroid_avatars"
+                                android:title="@string/prefs_title_avatar"
+                                android:summary="@string/prefs_summary_avatar"
+                                android:defaultValue="@string/birthdroid_avatars"
                                 android:enabled="false"/>
                                 
                         <ListPreference
@@ -79,10 +79,10 @@
                         android:summary="@string/prefs_summary_layout_settings">
 
                         <CheckBoxPreference
-                                android:key="widget_avartars" 
-                                android:title="@string/prefs_title_avartar"
-                                android:summary="@string/prefs_summary_avartar"
-                                android:defaultValue="@string/widget_avartars"
+                                android:key="widget_avatars"
+                                android:title="@string/prefs_title_avatar"
+                                android:summary="@string/prefs_summary_avatar"
+                                android:defaultValue="@string/widget_avatars"
                                 android:enabled="false"/>
                                 
                         <EditTextPreference
