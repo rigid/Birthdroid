@@ -49,7 +49,7 @@
     <string name="prefs_summary_flip_interval">Flip to next contact every n seconds</string>
     <string name="prefs_summary_widget_clickable">Open Birthdroid upon click on widget?</string>
     <string name="about_title">Birthdroid v0.6.4</string>
-    <string name="about_copyright">2011-2015 (c) Daniel Hiepler</string>
+    <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
     <string name="about_url">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
     <string name="about_changes">
