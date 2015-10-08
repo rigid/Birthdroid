@@ -52,7 +52,7 @@
     <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
     <string name="about_url">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
-    <string name="about_changes">
+    <string name="about_changes" translatable="false">
 \n* v0.6.4\n
 - french translation - thanks to eliovir\n
 - bugfix\n
@@ -81,7 +81,7 @@
 \n* v0.1 beta\n
 - initial beta release\n
     </string>
-    <string name="gplv3">
+    <string name="gplv3" translatable="false">
                     GNU GENERAL PUBLIC LICENSE\n
                        Version 3, 29 June 2007\n
 \n
