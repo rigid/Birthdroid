@@ -228,18 +228,18 @@ public class Birthdays
                 String[] projection = new String[]
                 { 
                         ContactsContract.Contacts._ID,
-                        ContactsContract.Contacts.LOOKUP_KEY, 
-                        ContactsContract.CommonDataKinds.Event.START_DATE, 
+                        ContactsContract.Contacts.LOOKUP_KEY,
+                        ContactsContract.CommonDataKinds.Event.START_DATE,
                         ContactsContract.Contacts.DISPLAY_NAME,
+                        ContactsContract.CommonDataKinds.Event.TYPE,
                         //ContactsContract.Contacts.PHOTO_URI,
                 };
 
-                String selection = new String(Data.MIMETYPE + "=? AND " + ContactsContract.CommonDataKinds.Event.TYPE + "=?");
+                String selection = new String(Data.MIMETYPE + "=?");
                 
                 String[] args = new String[] 
                 {
                         Event.CONTENT_ITEM_TYPE, 
-                        Integer.toString(ContactsContract.CommonDataKinds.Event.TYPE_BIRTHDAY)
                 };
                 
                 /* get cursor from content resolver */
@@ -279,6 +279,10 @@ public class Birthdays
                 (
                         ContactsContract.Contacts.DISPLAY_NAME
                 );
+                final int typeColumn = c.getColumnIndex
+                (
+                        ContactsContract.CommonDataKinds.Event.TYPE
+                );
                 /*final int photoColumn = c.getColumnIndex
                 (
                         ContactsContract.Contacts.PHOTO_URI
@@ -302,6 +306,9 @@ public class Birthdays
                         /* get date as string */
                         String date = c.getString(dateColumn); 
                         
+                        /* get type of event (birthday, anniversary, etc. */
+                        int type = c.getInt(typeColumn);
+
                         /* get photo URI */
                         //String photo_uri = c.getString(photoColumn);
                         //Log.e(TAG, "-------------> "+photo_uri);
@@ -314,6 +321,7 @@ public class Birthdays
 						/* fill in contact data */
 						b.personName = name;
 						b.contactId = key;
+                        b.type = getReadableEventType(type);
 						
                         /* get contact photo */
                         //~ Bitmap photo = null;
@@ -343,6 +351,34 @@ public class Birthdays
                 } while (c.moveToNext());       
 				
                 return list;
+        }
+
+        /**
+         * Return a readable representation of the event type.
+         *
+         * Currently, there are these values supported:
+         * birthday, anniversary, custom, other
+         *
+         * @param type
+         * @return String
+         */
+        private String getReadableEventType(int type) {
+                String readable = "";
+                switch (type) {
+                        case Event.TYPE_BIRTHDAY:
+                                readable = "birthday";
+                                break;
+                        case Event.TYPE_ANNIVERSARY:
+                                readable = "anniversary";
+                                break;
+                        case Event.TYPE_CUSTOM:
+                                readable = "custom";
+                                break;
+                        case Event.TYPE_OTHER:
+                                readable = "other";
+                                break;
+                }
+                return readable;
         }
 
         /**
@@ -424,6 +460,8 @@ public class Birthdays
                 public String personName;
                 /** the event */
                 public Date date;
+                /** the event type: birthday, anniversary, etc. */
+                public String type;
                 /** id of contact that belongs to this birthday */
                 public String contactId;
                 /** contact photo */
@@ -436,20 +474,12 @@ public class Birthdays
                 public Birthday(Date birthday)
                 {
                         this.date = birthday;
+                        this.type = "";
                         this.personName = "";
                         this.contactId = "";
                         this.photo = null;
                         this.hasYear = false;
 				}
-
-                public Birthday(String personName, Date birthday, String contactId, Bitmap photo)
-                {
-                        this.personName = personName;
-                        this.date = birthday;
-                        this.contactId = contactId;
-                        this.photo = photo;
-                        this.hasYear = false;
-                }
 
                 /** return current age of person */
                 public int getPersonAge()
