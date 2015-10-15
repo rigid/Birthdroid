@@ -20,13 +20,13 @@
 
     <!-- used to select sorting-method -->
     <string-array name="sort_method_entries">
-        <item>days left</item>
-        <item>age of person</item>
+        <item>@string/sorting_days_left</item>
+        <item>@string/sorting_age_of_person</item>
     </string-array>
     
     <string-array name="sort_method_values">
         <item>UPCOMING_DAYS</item>
         <item>AGE</item>
     </string-array>
-    
+
 </resources>

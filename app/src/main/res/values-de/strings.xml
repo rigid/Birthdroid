@@ -51,6 +51,8 @@
     <string name="prefs_summary_layout_settings">Anpassen der Anzeigeeinstellungen</string>
     <string name="prefs_summary_flip_interval">Zeige nächsten Eintrag nach n Sekunden</string>
     <string name="prefs_summary_widget_clickable">Öffne Birthdroid bei Klick auf Widget?</string>
+    <string name="sorting_days_left">Verbleibende Tage</string>
+    <string name="sorting_age_of_person">Alter der Person</string>
     <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
     <string name="about_name">Über Birthdroid</string>
     <string name="about_description">Einfache Anwendung um anstehende Geburtstage anzuzeigen.</string>

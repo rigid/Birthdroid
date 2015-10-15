@@ -52,6 +52,8 @@
     <string name="prefs_summary_layout_settings">Adjust layout settings</string>
     <string name="prefs_summary_flip_interval">Flip to next contact every n seconds</string>
     <string name="prefs_summary_widget_clickable">Open Birthdroid upon click on widget?</string>
+    <string name="sorting_days_left">days left</string>
+    <string name="sorting_age_of_person">age of person</string>
     <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
     <string name="about_url" translatable="false">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
