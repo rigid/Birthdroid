@@ -18,7 +18,9 @@
 package com.rigid.birthdroid;
 
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.TextView;
 
 
 public class AboutActivity extends Activity
@@ -29,5 +31,17 @@ public class AboutActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
+        String version = "";
+        try
+        {
+            // Get the version string with a leading space
+            version = " " + getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        }
+        catch (PackageManager.NameNotFoundException e)
+        {
+            // No need to handle, version is then simply an empty string
+        }
+        TextView about_title = (TextView) findViewById(R.id.about_title);
+        about_title.append(version);
     }
 }

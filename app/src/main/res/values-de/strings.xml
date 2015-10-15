@@ -52,7 +52,6 @@
     <string name="prefs_summary_flip_interval">Zeige nächsten Eintrag nach n Sekunden</string>
     <string name="prefs_summary_widget_clickable">Öffne Birthdroid bei Klick auf Widget?</string>
     <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
-    <string name="about_title">Birthdroid v0.6.4</string>
     <string name="about_name">Über Birthdroid</string>
     <string name="about_description">Einfache Anwendung um anstehende Geburtstage anzuzeigen.</string>
 </resources>
