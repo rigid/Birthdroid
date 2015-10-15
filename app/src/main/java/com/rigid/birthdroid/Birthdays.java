@@ -524,33 +524,61 @@ public class Birthdays
                         
                         /* is this years birthday yet to come? */
                         if(
-                            now.get(Calendar.MONTH) < bday.get(Calendar.MONTH) ||
-                            (
-                              (now.get(Calendar.MONTH) == bday.get(Calendar.MONTH)) &&
-                              (now.get(Calendar.DAY_OF_MONTH) < bday.get(Calendar.DAY_OF_MONTH))
-                            )
-                          )
+                                now.get(Calendar.MONTH) < bday.get(Calendar.MONTH) ||
+                                        (
+                                                (now.get(Calendar.MONTH) == bday.get(Calendar.MONTH)) &&
+                                                        (now.get(Calendar.DAY_OF_MONTH) < bday.get(Calendar.DAY_OF_MONTH))
+                                        )
+                                )
                         {
                                 years--;
                         }
 
                         /* birthday today? */
                         if(now.get(Calendar.MONTH) == bday.get(Calendar.MONTH) &&
-                           now.get(Calendar.DAY_OF_MONTH) == bday.get(Calendar.DAY_OF_MONTH))
+                                now.get(Calendar.DAY_OF_MONTH) == bday.get(Calendar.DAY_OF_MONTH))
                         {
                                 years--;
                         }
-                        
+
                         if(years < 0)
                         {
                                 Log.e(TAG, "Illegal age: "+years+" Using: age = 0");
                                 return 0;
                         }
-                        
+
                         return years+1;
                 }
-                
-                /** 
+
+                /**
+                 * Calculate the years for the next event.
+                 *
+                 * If the event has no year set, returns an empty string.
+                 * @return String
+                 */
+                public String getYearForNextEvent()
+                {
+                        if (!hasYear) {
+                                return "";
+                        }
+
+                        Calendar now = new GregorianCalendar();
+                        Calendar event = new GregorianCalendar();
+                        int years = 0;
+
+                        event.setTime(this.date);
+                        // Calculate the year difference
+                        years = now.get(GregorianCalendar.YEAR) - event.get(GregorianCalendar.YEAR);
+
+                        // If event has passed, add another year
+                        int days = event.get(GregorianCalendar.DAY_OF_YEAR) - now.get(GregorianCalendar.DAY_OF_YEAR);
+                        if (days < 0) {
+                                years++;
+                        }
+                        return Integer.toString(years);
+                }
+
+                /**
                  * return amount of days until birthday
                  * @result amount of days until birthday (negative if past)
                  */
@@ -654,6 +682,41 @@ public class Birthdays
                         i = new Intent(Intent.ACTION_VIEW);
                         i.setData(Uri.parse(ContactsContract.Contacts.CONTENT_LOOKUP_URI + "/" + contactId));
                         _c.startActivity(i);
+                }
+
+                /**
+                 * Create a formatted representation of a date.
+                 *
+                 * This respects if the year is set and if the event type is
+                 * anniversary or custom. If so, the label gets appended in
+                 * brackets.
+                 *
+                 * @return String formatted representation of date
+                 */
+                public String getFormattedDate() {
+                        SimpleDateFormat df = (SimpleDateFormat) SimpleDateFormat.getDateInstance(SimpleDateFormat.MEDIUM);
+                        String formattedDate;
+
+						/* strip year on events without valid year */
+                        if(hasYear)
+                        {
+                                formattedDate = df.format(date);
+                        }
+                        else
+                        {
+                                String p = df.toLocalizedPattern();
+                                // Remove year placeholders from format string
+                                p = p.replaceAll("[Yy]?", "");
+                                // Trim double spaces down to one
+                                p = p.replaceAll("  ", " ");
+                                df = new SimpleDateFormat(p);
+                                formattedDate = df.format(date);
+                        }
+                        // append label of event
+                        if (label.length() > 0) {
+                                formattedDate += " (" + label + ")";
+                        }
+                        return formattedDate;
                 }
         }
         

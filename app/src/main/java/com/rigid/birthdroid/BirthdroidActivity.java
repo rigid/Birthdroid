@@ -125,15 +125,10 @@ public class BirthdroidActivity extends ListActivity
         private class BirthdroidListAdapter extends BaseAdapter 
         {
                 private Context _c;
-                private SimpleDateFormat _df;
-                private LayoutInflater _i;
-                
-                
+
                 public BirthdroidListAdapter(Context context) 
                 {
                         _c = context;
-                        _i = LayoutInflater.from(context);
-                        _df = (SimpleDateFormat) SimpleDateFormat.getDateInstance(SimpleDateFormat.MEDIUM);
                 }
 
                 
@@ -175,71 +170,26 @@ public class BirthdroidActivity extends ListActivity
                  */
                 public View getView(int position, View convertView, ViewGroup parent) 
                 {
-                        ViewHolder holder;
+                        // Get the data item for this position
+                        Birthdays.Birthday event = b.get(position);
 
-
-                        /* View not yet created? */
-                        if(convertView == null) 
-                        {
-                                convertView = _i.inflate(R.layout.list_item, null);
-
-                                /* create new ViewHolder with necessary stuff */
-                                holder = new ViewHolder();
-                                holder.name = (TextView) convertView.findViewById(R.id.list_name);
-                                holder.date = (TextView) convertView.findViewById(R.id.list_date);
-                                holder.daysLeft = (TextView) convertView.findViewById(R.id.list_daysLeft);
-                                holder.years = (TextView) convertView.findViewById(R.id.list_years);
-                                convertView.setTag(holder);
+                        // Check if an existing view is being reused, otherwise inflate the view
+                        if (convertView == null) {
+                                convertView = LayoutInflater.from(_c).inflate(R.layout.list_item, parent, false);
                         }
-                        else 
-                        {
-                                /* recycle previously created view-holder */
-                                holder = (ViewHolder) convertView.getTag();
-                        }
+                        // Get views for data population
+                        TextView name = (TextView) convertView.findViewById(R.id.list_name);
+                        TextView date = (TextView) convertView.findViewById(R.id.list_date);
+                        TextView daysLeft = (TextView) convertView.findViewById(R.id.list_daysLeft);
+                        TextView years = (TextView) convertView.findViewById(R.id.list_years);
 
-                        /* get birthday */
-                        Birthdays.Birthday bday = b.get(position);
-
-                        /* set content of entry */
-                        holder.name.setText(bday.personName);
-                        holder.daysLeft.setText(bday.getDaysLeft());
-                        if (bday.hasYear) {
-                                holder.years.setText(Integer.toString(bday.getPersonAge()));
-                        }
-
-						/* strip year on events without valid year */
-						String date;
-                        if(bday.hasYear)
-						{
-								date = _df.format(bday.date);
-						}
-						else
-						{
-								SimpleDateFormat df = (SimpleDateFormat) _df.clone();
-								String p = df.toLocalizedPattern();
-                                // Remove year placeholders from format string
-								p = p.replaceAll("[Yy]?", "");
-                                // Trim double spaces down to one
-								p = p.replaceAll("  ", " ");
-								df = new SimpleDateFormat(p);
-								date = df.format(bday.date);
-						}
-                        // append label of event
-                        if (!bday.label.equals("")) {
-                                date += " (" + bday.label + ")";
-                        }
-                        holder.date.setText(date);
+                        // Populate the data into the template view using the data object
+                        name.setText(event.personName);
+                        daysLeft.setText(event.getDaysLeft());
+                        date.setText(event.getFormattedDate());
+                        years.setText(event.getYearForNextEvent());
 
                         return convertView;
-                }
-
-                /* ViewHolder class to hold views of one list-entry */
-                class ViewHolder 
-                {
-                        TextView name;
-                        TextView date;
-                        TextView daysLeft;
-                        TextView years;
                 }
         }
         
