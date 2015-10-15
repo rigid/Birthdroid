@@ -2,7 +2,7 @@
 <!--
  Birthdroid - Android upcoming birthday App/Widget
  Copyright (C) 2011-2015 Daniel Hiepler <daniel@niftylight.de>
- 
+
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
@@ -17,8 +17,24 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources>
+
     <style name="WidgetBlack">
         <item name="android:background">@drawable/widget_bg</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

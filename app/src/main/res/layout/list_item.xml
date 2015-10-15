@@ -19,14 +19,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginBottom="5dp">
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/list_name"
@@ -34,19 +34,19 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@android:color/primary_text_dark"
+            android:textColor="@android:color/primary_text_light"
             android:text="Name" />
         <TextView
             android:id="@+id/list_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/primary_text_dark"
+            android:textColor="@android:color/primary_text_light"
             android:text="Date" />
         <TextView
             android:id="@+id/list_daysLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/primary_text_dark"
+            android:textColor="@android:color/primary_text_light"
             android:text="DaysLeft" />
 
     </LinearLayout>
@@ -58,6 +58,6 @@
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_gravity="center_vertical"
-        android:textColor="@android:color/primary_text_dark"  />
+        android:textColor="@android:color/primary_text_light" />
 
 </LinearLayout>
