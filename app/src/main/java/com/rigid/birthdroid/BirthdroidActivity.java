@@ -127,7 +127,7 @@ public class BirthdroidActivity extends ListActivity
                         /** Settings */
                         case R.id.settings:
                         {
-                                startActivity(new Intent(this, PreferencesActivity.class));
+                                startActivity(new Intent(this, SettingsActivity.class));
                                 break;
                         }
 

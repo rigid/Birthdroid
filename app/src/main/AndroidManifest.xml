@@ -50,11 +50,10 @@
                 android:value="com.rigid.birthdroid.BirthdroidActivity" />
         </activity>
 
-        <!-- preferences activity -->
+        <!-- settings activity -->
         <activity
-            android:name="PreferencesActivity"
-            android:label="@string/preferences_name"
-            android:theme="@style/Theme.AppCompat"/>
+            android:name="SettingsActivity"
+            android:label="@string/preferences_name"/>
 
         <!-- widget -->
         <receiver

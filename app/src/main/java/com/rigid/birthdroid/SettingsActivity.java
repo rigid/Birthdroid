@@ -29,9 +29,9 @@ import android.util.Log;
 
 
 
-public class PreferencesActivity extends PreferenceActivity
+public class SettingsActivity extends PreferenceActivity
 {
-        private final static String TAG = "Birthdroid/PreferencesActivity";
+        private final static String TAG = "Birthdroid/SettingsActivity";
         
         
         
