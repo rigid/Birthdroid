@@ -16,27 +16,55 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center">
-        <TextView 
-            android:id="@+id/widget_person"    
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content"      
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/widget_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#FFFFFF"/>
-      
-        <TextView 
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/widget_message"    
-            android:layout_width="match_parent" 
-            android:layout_height="wrap_content" 
+            android:textColor="@android:color/primary_text_dark"
+            android:text="Name" />
+        <TextView
+            android:id="@+id/widget_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="@android:color/primary_text_dark"
+            android:text="Date" />
+        <TextView
+            android:id="@+id/widget_daysLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@android:color/primary_text_dark"
+            android:text="DaysLeft" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/widget_years"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:textColor="@android:color/primary_text_dark" />
+
 </LinearLayout>
