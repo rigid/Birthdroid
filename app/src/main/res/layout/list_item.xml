@@ -19,17 +19,17 @@
 <LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
       
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView 
             android:id="@+id/list_person"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -41,7 +41,7 @@
         
         <TextView 
             android:id="@+id/list_message"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
@@ -51,7 +51,7 @@
     
     <ImageView
         android:id="@+id/list_image"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
         
 </LinearLayout>
