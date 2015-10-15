@@ -288,15 +288,20 @@ public class Birthdays
                 /* walk all birthdays */
                 do 
                 { 
+                        /* get lookup key */
+                        String key = c.getString(keyColumn);
+
+                        /* Skip the birthday if it is in the list already */
+                        if (contactIdInList(key, list)) {
+                                continue;
+                        }
+
                         /* get name of person */
                         String name = c.getString(nameColumn);
 
                         /* get date as string */
                         String date = c.getString(dateColumn); 
                         
-                        /* get lookup key */
-                        String key = c.getString(keyColumn);
-
                         /* get photo URI */
                         //String photo_uri = c.getString(photoColumn);
                         //Log.e(TAG, "-------------> "+photo_uri);
@@ -338,6 +343,21 @@ public class Birthdays
                 } while (c.moveToNext());       
 				
                 return list;
+        }
+
+        /**
+         * Checks if the given contactId is already included in the list.
+         *
+         * @param String The lookup key to search for
+         * @return boolean
+         */
+        private boolean contactIdInList(String contactId, List<Birthday> list) {
+                for (Birthday b : list) {
+                        if (b.contactId.equals(contactId)) {
+                                return true;
+                        }
+                }
+                return false;
         }
 
         /* parse date string */
