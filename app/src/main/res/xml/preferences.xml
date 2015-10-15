@@ -33,27 +33,20 @@
     <PreferenceCategory
         android:title="@string/prefs_title_app">
 
-        <PreferenceScreen
-            android:key="birthdroid_layout_screen"
-            android:summary="@string/prefs_summary_layout_settings"
-            android:title="@string/prefs_title_layout_settings">
+        <CheckBoxPreference
+            android:defaultValue="@string/birthdroid_avatars"
+            android:enabled="false"
+            android:key="birthdroid_avatars"
+            android:summary="@string/prefs_summary_avatar"
+            android:title="@string/prefs_title_avatar" />
 
-            <CheckBoxPreference
-                android:defaultValue="@string/birthdroid_avatars"
-                android:enabled="false"
-                android:key="birthdroid_avatars"
-                android:summary="@string/prefs_summary_avatar"
-                android:title="@string/prefs_title_avatar" />
-
-            <ListPreference
-                android:defaultValue="@string/birthdroid_sort_method"
-                android:entries="@array/sort_method_entries"
-                android:entryValues="@array/sort_method_values"
-                android:key="birthdroid_sort_method"
-                android:summary="@string/prefs_summary_sort_method"
-                android:title="@string/prefs_title_sort_method" />
-
-        </PreferenceScreen>
+        <ListPreference
+            android:defaultValue="@string/birthdroid_sort_method"
+            android:entries="@array/sort_method_entries"
+            android:entryValues="@array/sort_method_values"
+            android:key="birthdroid_sort_method"
+            android:summary="@string/prefs_summary_sort_method"
+            android:title="@string/prefs_title_sort_method" />
 
     </PreferenceCategory>
 
