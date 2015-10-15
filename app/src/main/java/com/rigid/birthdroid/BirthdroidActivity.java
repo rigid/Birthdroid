@@ -202,7 +202,7 @@ public class BirthdroidActivity extends ListActivity
 
                         /* set content of entry */
                         holder.name.setText(bday.personName);
-                        holder.daysLeft.setText(Integer.toString(bday.getDaysUntilFuture()));
+                        holder.daysLeft.setText(bday.getDaysLeft());
                         if (bday.hasYear) {
                                 holder.years.setText(Integer.toString(bday.getPersonAge()));
                         }

@@ -29,7 +29,6 @@ import android.content.res.Resources;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.RemoteViews;
-import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -233,7 +232,7 @@ public class BirthdroidWidget extends AppWidgetProvider
 
                                         /* set message text */
                                         tview.setTextViewText(R.id.widget_person, list.get(i).personName);
-                                        tview.setTextViewText(R.id.widget_message, list.get(i).getMessage());
+                                        tview.setTextViewText(R.id.widget_message, list.get(i).getDaysLeft());
                                         
                                         /* add TextViews to layout */
                                         views.addView(R.id.view_flipper, tview);

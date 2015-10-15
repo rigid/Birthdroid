@@ -22,9 +22,9 @@
     <string name="about_name">About Birthdroid</string>
     <string name="upcoming_birthday">will be %1$d %2$s</string>
     <string name="upcoming_no_age">celebrates birthday %1$s</string>
-    <string name="days_zero">today</string>
-    <string name="days_one">tomorrow</string>
-    <string name="days_more">in %1$d days</string>
+    <string name="event_today">today</string>
+    <string name="event_tomorrow">tomorrow</string>
+    <string name="event_days_left">in %d days</string>
     <string name="born_today">was born today</string>
     <string name="no_leap_year">(This is no leap year, but surely celebrates anyway ;)</string>
     <string name="no_birthdays">No birthdays in contacts</string>

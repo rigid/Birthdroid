@@ -562,70 +562,33 @@ public class Birthdays
                 }
                 
                 /** return "upcoming" string */
-                public String getMessage()
+                public String getDaysLeft()
                 {
+                        Resources res = _c.getResources();
                         /* amount of days until birthday */
                         int in_days = getDaysUntilFuture();
 
-                        /* get age */
-                        int age = getPersonAge();
-
-                        
-                        Resources res = _c.getResources();
-
-                        
-                        
                         /* special treatment for newborns */
-                        if(in_days == 0 && age == 0)
+                        if(in_days == 0 && getPersonAge() == 0 && type.equals("birthday") && hasYear)
                         {
-                                String msg = res.getString(R.string.born_today);
-                                return msg;
+                                return res.getString(R.string.born_today);
                         }
                         
-                        /* build "in ... days" string */
-                        String days;
-                        switch(in_days)
-                        {
-                                /* today */
+                        /* special case for today and tomorrow */
+                        String days_left;
+                        switch (in_days) {
                                 case 0:
-                                {
-                                        days = res.getString(R.string.days_zero);
+                                        days_left = res.getString(R.string.event_today);
                                         break;
-                                }
-
-                                /* tomorrow */
                                 case 1:
-                                {
-                                        days = res.getString(R.string.days_one);
+                                        days_left = res.getString(R.string.event_tomorrow);
                                         break;
-                                }
-
                                 default:
-                                {
-                                        days = String.format(res.getString(R.string.days_more), in_days);
-                                }
-                                        
+                                        days_left = String.format(res.getString(R.string.event_days_left), in_days);
+                                        break;
                         }
-						
-                        /* generate different messages whether the birthday
-                         * has the year of birth set or not */						 
-                        String msg;
-                        if(hasYear)
-                        {
-								/* build message with age */                        
-								msg = String.format(
-												res.getString(R.string.upcoming_birthday),
-												age, days);
-						}
-						else
-						{
-								/* build message without age */
-								msg = String.format(
-								                res.getString(R.string.upcoming_no_age),
-								                days);
-						}
-
-                        return msg;
+                        days_left += getLeapYearMessage();
+                        return days_left;
                 }
 
 
