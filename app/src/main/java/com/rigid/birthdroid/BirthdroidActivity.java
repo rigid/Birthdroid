@@ -133,7 +133,7 @@ public class BirthdroidActivity extends ListActivity
                 {
                         _c = context;
                         _i = LayoutInflater.from(context);
-                        _df = (SimpleDateFormat) SimpleDateFormat.getDateInstance(SimpleDateFormat.SHORT);
+                        _df = (SimpleDateFormat) SimpleDateFormat.getDateInstance(SimpleDateFormat.MEDIUM);
                 }
 
                 
@@ -185,9 +185,10 @@ public class BirthdroidActivity extends ListActivity
 
                                 /* create new ViewHolder with necessary stuff */
                                 holder = new ViewHolder();
-                                holder.name = (TextView) convertView.findViewById(R.id.list_person);
-                                holder.msg = (TextView) convertView.findViewById(R.id.list_message);
-                                holder.img = (ImageView) convertView.findViewById(R.id.list_image);
+                                holder.name = (TextView) convertView.findViewById(R.id.list_name);
+                                holder.date = (TextView) convertView.findViewById(R.id.list_date);
+                                holder.daysLeft = (TextView) convertView.findViewById(R.id.list_daysLeft);
+                                holder.years = (TextView) convertView.findViewById(R.id.list_years);
                                 convertView.setTag(holder);
                         }
                         else 
@@ -201,28 +202,30 @@ public class BirthdroidActivity extends ListActivity
 
                         /* set content of entry */
                         holder.name.setText(bday.personName);
+                        holder.daysLeft.setText(Integer.toString(bday.getDaysUntilFuture()));
+                        if (bday.hasYear) {
+                                holder.years.setText(Integer.toString(bday.getPersonAge()));
+                        }
 
-						/* strip year on birthdays without valid year */
+						/* strip year on events without valid year */
 						String date;
-						if(bday.hasYear)
+                        if(bday.hasYear)
 						{
 								date = _df.format(bday.date);
 						}
 						else
-						{			
+						{
 								SimpleDateFormat df = (SimpleDateFormat) _df.clone();
 								String p = df.toLocalizedPattern();
-								p = p.replaceAll("\\W?[Yy]+\\W?", "");
+                                // Remove year placeholders from format string
+								p = p.replaceAll("[Yy]?", "");
+                                // Trim double spaces down to one
+								p = p.replaceAll("  ", " ");
 								df = new SimpleDateFormat(p);
 								date = df.format(bday.date);
-						}						
-						
-						holder.msg.setText(
-                              bday.getMessage()+
-						      " ("+date+")"+
-                              bday.getLeapYearMessage());
-                        holder.img.setImageBitmap(bday.photo);
-                        
+						}
+                        holder.date.setText(date);
+
                         return convertView;
                 }
 
@@ -230,8 +233,9 @@ public class BirthdroidActivity extends ListActivity
                 class ViewHolder 
                 {
                         TextView name;
-                        TextView msg;
-                        ImageView img;
+                        TextView date;
+                        TextView daysLeft;
+                        TextView years;
                 }
         }
         
