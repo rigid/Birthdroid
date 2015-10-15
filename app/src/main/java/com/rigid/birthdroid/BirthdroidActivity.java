@@ -18,34 +18,16 @@
 package com.rigid.birthdroid;
 
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.view.ViewGroup.LayoutParams;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.List;
-
-
 
 
 /** main activity */
@@ -75,7 +57,7 @@ public class BirthdroidActivity extends ListActivity
                         getResources().getString(R.string.birthdroid_sort_method)));
 
                 /* use our own list adapter */
-                setListAdapter(new BirthdroidListAdapter(this));
+                setListAdapter(new BirthdroidListAdapter(this, b));
 
                 /* enable text-filter */
                 getListView().setTextFilterEnabled(true);
@@ -118,81 +100,6 @@ public class BirthdroidActivity extends ListActivity
                 super.onPause();
         }
 
-		
-        /**
-         * ListAdapter that presents a complete list of birthdays
-         */
-        private class BirthdroidListAdapter extends BaseAdapter 
-        {
-                private Context _c;
-
-                public BirthdroidListAdapter(Context context) 
-                {
-                        _c = context;
-                }
-
-                
-                /**
-                 * @see android.widget.ListAdapter#getCount()
-                 */
-                public int getCount() 
-                {
-                        return b.getCount();
-                }
-
-                
-        
-
-                /**
-                 * return id object represents one row in the
-                 * list.
-                 * 
-                 * @see android.widget.ListAdapter#getItem(int)
-                 */
-                public Object getItem(int position) 
-                {
-                        return position;
-                }
-
-                /**
-                 * Use the array index as a unique id.
-                 * 
-                 * @see android.widget.ListAdapter#getItemId(int)
-                 */
-                public long getItemId(int position) 
-                {
-                        return position;
-                }
-
-                /**
-                 * @see android.widget.ListAdapter#getView(int, android.view.View,
-                 *      android.view.ViewGroup)
-                 */
-                public View getView(int position, View convertView, ViewGroup parent) 
-                {
-                        // Get the data item for this position
-                        Birthdays.Birthday event = b.get(position);
-
-                        // Check if an existing view is being reused, otherwise inflate the view
-                        if (convertView == null) {
-                                convertView = LayoutInflater.from(_c).inflate(R.layout.list_item, parent, false);
-                        }
-                        // Get views for data population
-                        TextView name = (TextView) convertView.findViewById(R.id.list_name);
-                        TextView date = (TextView) convertView.findViewById(R.id.list_date);
-                        TextView daysLeft = (TextView) convertView.findViewById(R.id.list_daysLeft);
-                        TextView years = (TextView) convertView.findViewById(R.id.list_years);
-
-                        // Populate the data into the template view using the data object
-                        name.setText(event.personName);
-                        daysLeft.setText(event.getDaysLeft());
-                        date.setText(event.getFormattedDate());
-                        years.setText(event.getYearForNextEvent());
-
-                        return convertView;
-                }
-        }
-        
 
         /** options menu */
         @Override
