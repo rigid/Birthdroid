@@ -19,7 +19,7 @@
 <resources>
     <string name="app_name">Birthdroid</string>
     <string name="preferences_name">Birthdroid Einstellungen</string>
-    <string name="upcoming">wird %2$s %1$d</string>
+    <string name="upcoming_birthday">wird %2$s %1$d</string>
     <string name="upcoming_no_age">hat %1$s Geburtstag</string>
     <string name="days_zero">heute</string>
     <string name="days_one">morgen</string>

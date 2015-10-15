@@ -614,7 +614,7 @@ public class Birthdays
                         {
 								/* build message with age */                        
 								msg = String.format(
-												res.getString(R.string.upcoming),
+												res.getString(R.string.upcoming_birthday),
 												age, days);
 						}
 						else

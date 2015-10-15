@@ -20,7 +20,7 @@
     <string name="app_name">Annidroid</string>
     <string name="preferences_name">Préférence de Annidroid</string>
     <string name="about_name">À propos de Annidroid</string>
-    <string name="upcoming">aura %1$d ans %2$s</string>
+    <string name="upcoming_birthday">aura %1$d ans %2$s</string>
     <string name="upcoming_no_age">fête l\'anniversaire %1$s</string>
     <string name="days_zero">aujourd\'hui</string>
     <string name="days_one">demain</string>
