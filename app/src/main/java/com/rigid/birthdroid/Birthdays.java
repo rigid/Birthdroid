@@ -295,11 +295,6 @@ public class Birthdays
                         /* get lookup key */
                         String key = c.getString(keyColumn);
 
-                        /* Skip the birthday if it is in the list already */
-                        if (contactIdInList(key, list)) {
-                                continue;
-                        }
-
                         /* get name of person */
                         String name = c.getString(nameColumn);
 
@@ -345,9 +340,11 @@ public class Birthdays
                         //~ else Log.v(TAG, "No photo!");
                         
                         
-                        /* save birthday in list */                        
-                        list.add(b);
-                        
+                        /* Add event to list, if not already included */
+                        if (eventNotInList(b, list)) {
+                                list.add(b);
+                        }
+
                 } while (c.moveToNext());       
 				
                 return list;
@@ -382,18 +379,21 @@ public class Birthdays
         }
 
         /**
-         * Checks if the given contactId is already included in the list.
+         * Checks if the given event is already included in the list.
          *
-         * @param String The lookup key to search for
+         * @param Birthday The event to search for
          * @return boolean
          */
-        private boolean contactIdInList(String contactId, List<Birthday> list) {
+        private boolean eventNotInList(Birthday birthday, List<Birthday> list) {
                 for (Birthday b : list) {
-                        if (b.contactId.equals(contactId)) {
-                                return true;
+                        if (b.contactId.equals(birthday.contactId)
+                                && b.type.equals(birthday.type)
+                                && b.date.equals(birthday.date)
+                                ) {
+                                return false;
                         }
                 }
-                return false;
+                return true;
         }
 
         /* parse date string */
