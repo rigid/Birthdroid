@@ -224,6 +224,10 @@ public class BirthdroidActivity extends ListActivity
 								df = new SimpleDateFormat(p);
 								date = df.format(bday.date);
 						}
+                        // append label of event
+                        if (!bday.label.equals("")) {
+                                date += " (" + bday.label + ")";
+                        }
                         holder.date.setText(date);
 
                         return convertView;

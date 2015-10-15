@@ -232,6 +232,7 @@ public class Birthdays
                         ContactsContract.CommonDataKinds.Event.START_DATE,
                         ContactsContract.Contacts.DISPLAY_NAME,
                         ContactsContract.CommonDataKinds.Event.TYPE,
+                        ContactsContract.CommonDataKinds.Event.LABEL,
                         //ContactsContract.Contacts.PHOTO_URI,
                 };
 
@@ -283,6 +284,10 @@ public class Birthdays
                 (
                         ContactsContract.CommonDataKinds.Event.TYPE
                 );
+                final int labelColumn = c.getColumnIndex
+                (
+                        ContactsContract.CommonDataKinds.Event.LABEL
+                );
                 /*final int photoColumn = c.getColumnIndex
                 (
                         ContactsContract.Contacts.PHOTO_URI
@@ -301,8 +306,11 @@ public class Birthdays
                         /* get date as string */
                         String date = c.getString(dateColumn); 
                         
-                        /* get type of event (birthday, anniversary, etc. */
+                        /* get type of event (birthday, anniversary, etc.) */
                         int type = c.getInt(typeColumn);
+
+                        /* get label of event (needed for custom events) */
+                        String label = c.getString(labelColumn);
 
                         /* get photo URI */
                         //String photo_uri = c.getString(photoColumn);
@@ -317,7 +325,8 @@ public class Birthdays
 						b.personName = name;
 						b.contactId = key;
                         b.type = getReadableEventType(type);
-						
+                        b.label = getLocalizedEventType(type, label);
+
                         /* get contact photo */
                         //~ Bitmap photo = null;
                         //~ Uri photo_uri = ContentUris.withAppendedId(
@@ -363,19 +372,38 @@ public class Birthdays
                 String readable = "";
                 switch (type) {
                         case Event.TYPE_BIRTHDAY:
-                                readable = "birthday";
+                                readable = "BIRTHDAY";
                                 break;
                         case Event.TYPE_ANNIVERSARY:
-                                readable = "anniversary";
+                                readable = "ANNIVERSARY";
                                 break;
                         case Event.TYPE_CUSTOM:
-                                readable = "custom";
+                                readable = "CUSTOM";
                                 break;
                         case Event.TYPE_OTHER:
-                                readable = "other";
+                                readable = "OTHER";
                                 break;
                 }
                 return readable;
+        }
+
+        /**
+         * Return a localized string with the event type.
+         *
+         * @param type
+         * @return String
+         */
+        private String getLocalizedEventType(int type, String label) {
+                String localized = "";
+                switch (type) {
+                        case Event.TYPE_ANNIVERSARY:
+                                localized = _c.getResources().getString(R.string.anniversary);
+                                break;
+                        case Event.TYPE_CUSTOM:
+                                localized = label;
+                                break;
+                }
+                return localized;
         }
 
         /**
@@ -462,6 +490,8 @@ public class Birthdays
                 public Date date;
                 /** the event type: birthday, anniversary, etc. */
                 public String type;
+                /** the event label, used by custom events */
+                public String label;
                 /** id of contact that belongs to this birthday */
                 public String contactId;
                 /** contact photo */
@@ -569,7 +599,7 @@ public class Birthdays
                         int in_days = getDaysUntilFuture();
 
                         /* special treatment for newborns */
-                        if(in_days == 0 && getPersonAge() == 0 && type.equals("birthday") && hasYear)
+                        if(in_days == 0 && getPersonAge() == 0 && type.equals("BIRTHDAY") && hasYear)
                         {
                                 return res.getString(R.string.born_today);
                         }

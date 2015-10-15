@@ -31,6 +31,7 @@
     <string name="no_leap_year">(Heuer kein Schaltjahr, aber feiert gewiss trotzdem ;)</string>
     <string name="no_birthdays">Keine Geburtstage in Kontaktdatenbank</string>
     <string name="no_upcoming_birthdays">Keine anstehenden Geburtstage ...</string>
+    <string name="anniversary">Jahrestag</string>
     <string name="menu_settings">Einstellungen</string>
     <string name="menu_about">Über ...</string>
     <string name="prefs_title_general">Allgemein</string>
