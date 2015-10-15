@@ -23,7 +23,10 @@
     <string name="upcoming_no_age">hat %1$s Geburtstag</string>
     <string name="event_today">heute</string>
     <string name="event_tomorrow">morgen</string>
-    <string name="event_days_left">in %d Tagen</string>
+    <plurals name="event_days_left">
+        <item quantity="one">in %d Tag</item>
+        <item quantity="other">in %d Tagen</item>
+    </plurals>
     <string name="born_today">wurde heute geboren</string>
     <string name="no_leap_year">(Heuer kein Schaltjahr, aber feiert gewiss trotzdem ;)</string>
     <string name="no_birthdays">Keine Geburtstage in Kontaktdatenbank</string>

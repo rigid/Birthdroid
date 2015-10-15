@@ -24,7 +24,11 @@
     <string name="upcoming_no_age">fête l\'anniversaire %1$s</string>
     <string name="event_today">aujourd\'hui</string>
     <string name="event_tomorrow">demain</string>
-    <string name="event_days_left">dans %d jours</string>
+    <plurals name="event_days_left">
+        <item quantity="zero">dans %d jour</item>
+        <item quantity="one">dans %d jour</item>
+        <item quantity="other">dans %d jours</item>
+    </plurals>
     <string name="born_today">est né(e) aujourd\'hui</string>
     <string name="no_leap_year">(Ce n\'est pas une année bissextile, mais fêtera surement de toute façon ;)</string>
     <string name="no_birthdays">Aucun anniversaire dans les contacts</string>

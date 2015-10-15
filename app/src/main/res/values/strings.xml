@@ -24,7 +24,10 @@
     <string name="upcoming_no_age">celebrates birthday %1$s</string>
     <string name="event_today">today</string>
     <string name="event_tomorrow">tomorrow</string>
-    <string name="event_days_left">in %d days</string>
+    <plurals name="event_days_left">
+        <item quantity="one">%d day left</item>
+        <item quantity="other">%d days left</item>
+    </plurals>
     <string name="born_today">was born today</string>
     <string name="no_leap_year">(This is no leap year, but surely celebrates anyway ;)</string>
     <string name="no_birthdays">No birthdays in contacts</string>

@@ -584,7 +584,7 @@ public class Birthdays
                                         days_left = res.getString(R.string.event_tomorrow);
                                         break;
                                 default:
-                                        days_left = String.format(res.getString(R.string.event_days_left), in_days);
+                                        days_left = res.getQuantityString(R.plurals.event_days_left, in_days, in_days);
                                         break;
                         }
                         days_left += getLeapYearMessage();
@@ -613,7 +613,6 @@ public class Birthdays
                                 /* add no-leap-year message? */
                                 return "\n"+_c.getResources().getString(R.string.no_leap_year);
                         }
-
                         return "";
                 }
 
