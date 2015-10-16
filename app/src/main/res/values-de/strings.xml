@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Birthdroid - Android upcoming birthday App/Widget
+ Copyright (C) 2011-2015 Daniel Hiepler <daniel@niftylight.de>
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources>
+    <string name="app_name">Birthdroid</string>
+    <string name="preferences_name">Birthdroid Einstellungen</string>
+    <string name="upcoming_birthday">wird %2$s %1$d</string>
+    <string name="upcoming_no_age">hat %1$s Geburtstag</string>
+    <string name="event_today">heute</string>
+    <string name="event_tomorrow">morgen</string>
+    <plurals name="event_days_left">
+        <item quantity="one">in %d Tag</item>
+        <item quantity="other">in %d Tagen</item>
+    </plurals>
+    <string name="born_today">wurde heute geboren</string>
+    <string name="no_leap_year">(Heuer kein Schaltjahr, aber feiert gewiss trotzdem ;)</string>
+    <string name="no_birthdays">Keine Geburtstage in Kontaktdatenbank</string>
+    <string name="no_upcoming_birthdays">Keine anstehenden Geburtstage ...</string>
+    <string name="anniversary">Jahrestag</string>
+    <string name="menu_settings">Einstellungen</string>
+    <string name="menu_about">Über ...</string>
+    <string name="prefs_title_general">Allgemein</string>
+    <string name="prefs_title_app">Anwendung</string>
+    <string name="prefs_title_widget">Widget</string>
+    <string name="prefs_title_scan">Aktualisierungsintervall</string>
+    <string name="prefs_title_avatar">Zeige Avatar</string>
+    <string name="prefs_title_sort_method">Sortierung ...</string>
+    <string name="prefs_title_days">Anzeigezeitraum</string>
+    <string name="prefs_title_layout_settings">Layout-Einstellungen</string>
+    <string name="prefs_title_flip_interval">Anzeigeintervall</string>
+    <string name="prefs_title_widget_clickable">Widget klickbar?</string>
+    <string name="prefs_summary_scan">Durchsuche Kontakte nach neuen Geburtstagen alle n Stunden</string>
+    <string name="prefs_summary_avatar">Lade Bild aus Kontakten und zeige es an</string>
+    <string name="prefs_summary_sort_method">Sortierreihenfolge der angezeigten Einträge</string>
+    <string name="prefs_summary_days">Zeige alle Geburtstage der nächsten n Tage</string>
+    <string name="prefs_summary_layout_settings">Anpassen der Anzeigeeinstellungen</string>
+    <string name="prefs_summary_flip_interval">Zeige nächsten Eintrag nach n Sekunden</string>
+    <string name="prefs_summary_widget_clickable">Öffne Birthdroid bei Klick auf Widget?</string>
+    <string name="sorting_days_left">Verbleibende Tage</string>
+    <string name="sorting_age_of_person">Alter der Person</string>
+    <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
+    <string name="about_name">Über Birthdroid</string>
+    <string name="about_description">Einfache Anwendung um anstehende Geburtstage anzuzeigen.</string>
+</resources>
