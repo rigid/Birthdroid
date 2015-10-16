@@ -20,6 +20,7 @@ package com.rigid.birthdroid;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,16 +29,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 
 
 /** main activity */
-public class BirthdroidActivity extends ListActivity
+public class BirthdroidActivity extends AppCompatActivity
 {
         private final static String TAG = "Birthdroid/BirthdroidActivity";
         /** object holding all birthdays */
         private Birthdays b;
         /** object to hold all our permanent settings */
         private Settings s;
+        /** listview handle */
+        private ListView l;
 
         
         
@@ -46,6 +50,7 @@ public class BirthdroidActivity extends ListActivity
         public void onCreate(Bundle savedInstanceState)
         {
                 super.onCreate(savedInstanceState);
+                setContentView(R.layout.main);
 
                 /* create new settings-object */
                 s = new Settings(this);
@@ -56,18 +61,19 @@ public class BirthdroidActivity extends ListActivity
                 b.sort(s.getString("birthdroid_sort_method", 
                         getResources().getString(R.string.birthdroid_sort_method)));
 
+                /* Get the list view */
+                l = (ListView) findViewById(R.id.main_listview);
+
                 /* use our own list adapter */
-                setListAdapter(new BirthdroidListAdapter(this, b));
+                l.setAdapter(new BirthdroidListAdapter(this, b));
 
                 /* enable text-filter */
-                getListView().setTextFilterEnabled(true);
+                l.setTextFilterEnabled(true);
 
                 /* register click-listener for list-items */
-                getListView().setOnItemClickListener(new OnItemClickListener() 
-                {
+                l.setOnItemClickListener(new OnItemClickListener() {
                         public void onItemClick(AdapterView<?> parent, View view,
-                                                int position, long id) 
-                        {
+                                                int position, long id) {
                                 /* open this contact */
                                 b.get(position).openContact();
                         }
@@ -84,7 +90,7 @@ public class BirthdroidActivity extends ListActivity
                 /* sort birthdays */
                 b.sort(s.getString("birthdroid_sort_method", getResources().getString(R.string.birthdroid_sort_method)));
 
-                ((BaseAdapter) getListAdapter()).notifyDataSetInvalidated();
+                ((BaseAdapter) l.getAdapter()).notifyDataSetInvalidated();
         }
 
 		
