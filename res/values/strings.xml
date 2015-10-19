@@ -35,24 +35,24 @@
     <string name="prefs_title_app">Application</string>
     <string name="prefs_title_widget">Widget</string>
     <string name="prefs_title_scan">Contact scan interval</string>
-    <string name="prefs_title_avartar">Show avartar</string>
+    <string name="prefs_title_avatar">Show avatar</string>
     <string name="prefs_title_sort_method">Sort by...</string>
     <string name="prefs_title_days">Foresight period</string>
     <string name="prefs_title_layout_settings">Layout settings</string>
     <string name="prefs_title_flip_interval">Flip cycle interval</string>
     <string name="prefs_title_widget_clickable">Widget clickable?</string>
     <string name="prefs_summary_scan">Scan contacts for new birthdays every n hours</string>
-    <string name="prefs_summary_avartar">Load image from contacts and display it</string>
+    <string name="prefs_summary_avatar">Load image from contacts and display it</string>
     <string name="prefs_summary_sort_method">How to sort order of results</string>
     <string name="prefs_summary_days">Display birthdays in the next n days</string>
     <string name="prefs_summary_layout_settings">Adjust layout settings</string>
     <string name="prefs_summary_flip_interval">Flip to next contact every n seconds</string>
     <string name="prefs_summary_widget_clickable">Open Birthdroid upon click on widget?</string>
     <string name="about_title">Birthdroid v0.6.4</string>
-    <string name="about_copyright">2011-2015 (c) Daniel Hiepler</string>
-    <string name="about_url">http://github.com/rigid/Birthdroid</string>
+    <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
+    <string name="about_url" translatable="false">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
-    <string name="about_changes">
+    <string name="about_changes" translatable="false">
 \n* v0.6.4\n
 - french translation - thanks to eliovir\n
 - bugfix\n
@@ -81,7 +81,7 @@
 \n* v0.1 beta\n
 - initial beta release\n
     </string>
-    <string name="gplv3">
+    <string name="gplv3" translatable="false">
                     GNU GENERAL PUBLIC LICENSE\n
                        Version 3, 29 June 2007\n
 \n

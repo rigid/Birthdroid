@@ -35,19 +35,20 @@
     <string name="prefs_title_app">Application</string>
     <string name="prefs_title_widget">Widget</string>
     <string name="prefs_title_scan">Fréquence d\'analyse des contacts</string>
-    <string name="prefs_title_avartar">Afficher l\'avatar</string>
+    <string name="prefs_title_avatar">Afficher l\'avatar</string>
     <string name="prefs_title_sort_method">Trier selon…</string>
     <string name="prefs_title_days">Anticipation</string>
     <string name="prefs_title_layout_settings">Paramètres de présentation</string>
     <string name="prefs_title_flip_interval">Fréquence de changement</string>
     <string name="prefs_title_widget_clickable">Widget cliquable ?</string>
     <string name="prefs_summary_scan">Analyser les contacts pour de nouveaux anniversaires toutes les X heures</string>
-    <string name="prefs_summary_avartar">Charger l\'image à partir des contacts et l\'afficher</string>
+    <string name="prefs_summary_avatar">Charger l\'image à partir des contacts et l\'afficher</string>
     <string name="prefs_summary_sort_method">Comment trier les résultats</string>
     <string name="prefs_summary_days">Afficher les anniversaires des prochains X jours</string>
     <string name="prefs_summary_layout_settings">Modifier les paramètres de présentation</string>
     <string name="prefs_summary_flip_interval">Afficher le contacter suivant toutes les X secondes</string>
     <string name="prefs_summary_widget_clickable">Ouvrir Annidroid lors du clic sur le widget ?</string>
-    <string name="about_title">Annidroid v0.6.3</string>
+    <string name="about_title">Annidroid v0.6.4</string>
     <string name="about_description">Application simple pour afficher les anniversaires à venir.</string>
+    <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
 </resources>
