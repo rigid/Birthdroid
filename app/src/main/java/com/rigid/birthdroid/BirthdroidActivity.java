@@ -51,7 +51,7 @@ import java.util.List;
 /** main activity */
 public class BirthdroidActivity extends ListActivity
 {
-        private final static String TAG = "Birthdroid/BirthdroidActivity";
+        private final static String TAG = "Birthdroid/BD-Activity";
         /** object holding all birthdays */
         private Birthdays b;
         /** object to hold all our permanent settings */
