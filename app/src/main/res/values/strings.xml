@@ -53,6 +53,9 @@
     <string name="about_url" translatable="false">http://github.com/rigid/Birthdroid</string>
     <string name="about_description">Simple application to show upcoming birthdays.</string>
     <string name="about_changes" translatable="false">
+\n* v0.6.5\n
+- spaniard translation - thanks to Valeriano A.R.\n
+- use AndroidStudio to build - thanks to Dr. Tobias Quathamer\n
 \n* v0.6.4\n
 - french translation - thanks to eliovir\n
 - bugfix\n
