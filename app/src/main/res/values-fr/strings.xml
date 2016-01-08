@@ -50,5 +50,5 @@
     <string name="prefs_summary_widget_clickable">Ouvrir Annidroid lors du clic sur le widget ?</string>
     <string name="about_title">Annidroid v0.6.4</string>
     <string name="about_description">Application simple pour afficher les anniversaires à venir.</string>
-    <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
+    <string name="about_copyright">2011–2015 © Daniel Hiepler</string>
 </resources>

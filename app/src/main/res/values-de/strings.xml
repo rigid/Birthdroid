@@ -27,15 +27,15 @@
     <string name="born_today">wurde heute geboren</string>
     <string name="no_leap_year">(Heuer kein Schaltjahr, aber feiert gewiss trotzdem ;)</string>
     <string name="no_birthdays">Keine Geburtstage in Kontaktdatenbank</string>
-    <string name="no_upcoming_birthdays">Keine anstehenden Geburtstage ...</string>
+    <string name="no_upcoming_birthdays">Keine anstehenden Geburtstage …</string>
     <string name="menu_settings">Einstellungen</string>
-    <string name="menu_about">Über ...</string>
+    <string name="menu_about">Über …</string>
     <string name="prefs_title_general">Allgemein</string>
     <string name="prefs_title_app">Anwendung</string>
     <string name="prefs_title_widget">Widget</string>
     <string name="prefs_title_scan">Aktualisierungsintervall</string>
     <string name="prefs_title_avatar">Zeige Avatar</string>
-    <string name="prefs_title_sort_method">Sortierung ...</string>
+    <string name="prefs_title_sort_method">Sortierung …</string>
     <string name="prefs_title_days">Anzeigezeitraum</string>
     <string name="prefs_title_layout_settings">Layout-Einstellungen</string>
     <string name="prefs_title_flip_interval">Anzeigeintervall</string>
@@ -47,7 +47,7 @@
     <string name="prefs_summary_layout_settings">Anpassen der Anzeigeeinstellungen</string>
     <string name="prefs_summary_flip_interval">Zeige nächsten Eintrag nach n Sekunden</string>
     <string name="prefs_summary_widget_clickable">Öffne Birthdroid bei Klick auf Widget?</string>
-    <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
+    <string name="about_copyright">2011–2015 © Daniel Hiepler</string>
     <string name="about_title">Birthdroid v0.6.4</string>
     <string name="about_name">Über Birthdroid</string>
     <string name="about_description">Einfache Anwendung um anstehende Geburtstage anzuzeigen.</string>
