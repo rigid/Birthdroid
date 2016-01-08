@@ -20,17 +20,13 @@ Download latest APK at https://github.com/rigid/Birthdroid/releases/latest
 
 2. Compile
 ==========
-Use the provided Makefile wrapper. Available targets are
+Use the provided gradle wrapper. To simply build the APK, use the command
 
-* make keygen        - generate own keystore
-* make update        - update project
-* make all           - build release
-* make debug         - build debug
-* make sign          - sign release
-* make install       - push .apk to device using adb
-* make install_debug - push debugging .apk to device using adb
+$ ./gradlew build
 
-e.g. make update && make keygen && make && make sign && make install
+For an overview of all available tasks, use
+
+$ ./gradlew tasks
 
 You need the appcompat library to compile Birthdroid. You might have to update that path for the update target in the Makefile.
 

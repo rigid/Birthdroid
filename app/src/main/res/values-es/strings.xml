@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ Birthdroid - Android upcoming birthday App/Widget
+ Copyright (C) 2011-2015 Daniel Hiepler <daniel@niftylight.de>
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
 <resources>
     <string name="app_name">Cumpledroid</string>
-    <string name="menu_about">Acerca de ...</string>
+    <string name="menu_about">Acerca de …</string>
     <string name="menu_settings">Configuración</string>
     <string name="no_birthdays">Sin cumpleaños en los contactos</string>
     <string name="no_leap_year">(No es un año visiesto, pero seguro que lo celebra ;)</string>
-    <string name="no_upcoming_birthdays">Ningun cumpleaños cercano...</string>
+    <string name="no_upcoming_birthdays">Ningún cumpleaños cercano …</string>
     <string name="preferences_name">Preferencias de Birthdroid</string>
     <string name="prefs_summary_avatar">Cargar imagen desde contactos y mostrala</string>
     <string name="about_description">Simple aplicacion para indicar cumpleaños cercanos</string>
@@ -15,7 +32,7 @@
     <string name="days_more">en %1$d días</string>
     <string name="days_one">mañana</string>
     <string name="days_zero">hoy</string>
-    <string name="about_copyright">2011-2015 © Daniel Hiepler</string>
+    <string name="about_copyright">2011–2015 © Daniel Hiepler</string>
     <string name="prefs_summary_days">Mostrar los cumpleaños de los siguientes n días</string>
     <string name="prefs_summary_flip_interval">Cambiar a otro contacto cada n segundos</string>
     <string name="prefs_summary_layout_settings">Ajustar configuracion de layout</string>
@@ -29,10 +46,9 @@
     <string name="prefs_title_general">General</string>
     <string name="prefs_title_layout_settings">Configuracion de layout</string>
     <string name="prefs_title_scan">Intervalo de escaneo de contactos</string>
-    <string name="prefs_title_sort_method">Ordenar por...</string>
+    <string name="prefs_title_sort_method">Ordenar por …</string>
     <string name="prefs_title_widget">Widget</string>
     <string name="prefs_title_widget_clickable">¿Widget clickable?</string>
     <string name="upcoming">Cumplira %1$d %2$s</string>
     <string name="upcoming_no_age">Cumplira %1$s</string>
-    <string name="widget_avatars" translatable="false"></string>
 </resources>
