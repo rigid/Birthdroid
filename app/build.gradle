@@ -8,6 +8,8 @@ android {
         applicationId "com.rigid.birthdroid"
         minSdkVersion 8
         targetSdkVersion 19
+        versionCode 64
+        versionName "0.6.4"
     }
 
     buildTypes {
