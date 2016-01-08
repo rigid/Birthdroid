@@ -34,5 +34,4 @@
     <string name="prefs_title_widget_clickable">¿Widget clickable?</string>
     <string name="upcoming">Cumplira %1$d %2$s</string>
     <string name="upcoming_no_age">Cumplira %1$s</string>
-    <string name="widget_avatars" translatable="false"></string>
 </resources>
