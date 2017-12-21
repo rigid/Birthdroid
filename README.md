@@ -5,7 +5,7 @@ Simple, ad free & open android birthday app/widget.
 Download latest APK at https://github.com/rigid/Birthdroid/releases/latest
 
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Bitcoin.png" width="25"> Donate a coffee: ![1BLEeqwXnJJbpaLHiskZ5WyJJRyEWqCAQZ](bitcoin:1BLEeqwXnJJbpaLHiskZ5WyJJRyEWqCAQZ)
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Bitcoin.png" width="25"> Donate a coffee: **1BLEeqwXnJJbpaLHiskZ5WyJJRyEWqCAQZ**
 
 
 
