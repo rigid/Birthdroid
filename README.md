@@ -2,14 +2,11 @@
 
 Simple, ad free & open android birthday app/widget.
 
-Download latest APK at https://github.com/rigid/Birthdroid/releases/latest
+## 1. Install
+Get from [f-droid](https://f-droid.org) or download latest APK at https://github.com/rigid/Birthdroid/releases/latest
 
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Bitcoin.png" width="25"> Donate a coffee: **1BLEeqwXnJJbpaLHiskZ5WyJJRyEWqCAQZ**
-
-
-
-## 1. Features
+## 2. Features
 
 * free & open
 * no fancy permissions
@@ -17,7 +14,7 @@ Download latest APK at https://github.com/rigid/Birthdroid/releases/latest
 * doesn't phone home
 
 
-## 2. Compile
+## 3. Compile
 
 Use the provided Makefile wrapper. Available targets are
 
@@ -34,7 +31,7 @@ e.g. make update && make keygen && make && make sign && make install
 You need the appcompat library to compile Birthdroid. You might have to update that path for the update target in the Makefile.
 
 
-## 3. Usage
+## 4. Usage
 
 1. Launch the app 
 2. You'll see a list of contacts with upcoming birthdays 
@@ -42,7 +39,10 @@ You need the appcompat library to compile Birthdroid. You might have to update t
 4. (optional) add a widget to your home-screen that continously shows upcoming birthdays
 
 
-## 4. FAQ
+## 5. FAQ
 
 * Q: How can I force-refresh the birthday list or the widget content?
   * A: Data will be refreshed regularly every 24 hours and after you leave the preferences. To force a refresh, open and close the preferences dialog from the app menu.
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Bitcoin.png" width="25"> Donate a coffee: **1BLEeqwXnJJbpaLHiskZ5WyJJRyEWqCAQZ**
